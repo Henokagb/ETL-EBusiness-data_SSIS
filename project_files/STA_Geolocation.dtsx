@@ -1,0 +1,627 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/25/2024 6:38:17 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-MDJ72NE"
+  DTS:CreatorName="DESKTOP-MDJ72NE\HP"
+  DTS:DTSID="{72CC050D-9216-4D6C-B82F-846589549CAC}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{5B97895A-716E-4C6D-82DC-5A87793106F6}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{76C46196-5B4C-4286-ABDA-3C2C62D8B462}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\HP\Desktop\Projects\ETL and DWH\Assignement\DATA\geolocation_dataset.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="&quot;geolocation_zip_code_prefix&quot;"
+              DTS:DTSID="{97318483-99DA-44F2-B0B1-05E5DE795BD7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="&quot;geolocation_lat&quot;"
+              DTS:DTSID="{FE465553-297D-42B7-989A-DBEBEBDE9E11}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="&quot;geolocation_lng&quot;"
+              DTS:DTSID="{132B122C-BC61-47C8-9345-5F00D427F825}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="&quot;geolocation_city&quot;"
+              DTS:DTSID="{6D6FC434-A1A6-4825-85CE-3242AA30D2B9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="&quot;geolocation_state&quot;"
+              DTS:DTSID="{43332B88-D3EA-4004-98E8-45CC269DEFA6}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT - STA Geolocation"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{2e909504-6889-4e5b-82db-86b4bc6d89ed}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT - STA Geolocation"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT - STA Geolocation\FF_SRC - Geolocation"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="FF_SRC - Geolocation"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - STA Geolocation\FF_SRC - Geolocation.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT - STA Geolocation\FF_SRC - Geolocation.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - STA Geolocation\FF_SRC - Geolocation.Outputs[Flat File Source Output].Columns[&quot;geolocation_zip_code_prefix&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - STA Geolocation\FF_SRC - Geolocation.Outputs[Flat File Source Output].ExternalColumns[&quot;geolocation_zip_code_prefix&quot;]"
+                      length="50"
+                      lineageId="Package\DFT - STA Geolocation\FF_SRC - Geolocation.Outputs[Flat File Source Output].Columns[&quot;geolocation_zip_code_prefix&quot;]"
+                      name="&quot;geolocation_zip_code_prefix&quot;"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - STA Geolocation\FF_SRC - Geolocation.Outputs[Flat File Source Output].Columns[&quot;geolocation_lat&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - STA Geolocation\FF_SRC - Geolocation.Outputs[Flat File Source Output].ExternalColumns[&quot;geolocation_lat&quot;]"
+                      length="50"
+                      lineageId="Package\DFT - STA Geolocation\FF_SRC - Geolocation.Outputs[Flat File Source Output].Columns[&quot;geolocation_lat&quot;]"
+                      name="&quot;geolocation_lat&quot;"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - STA Geolocation\FF_SRC - Geolocation.Outputs[Flat File Source Output].Columns[&quot;geolocation_lng&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - STA Geolocation\FF_SRC - Geolocation.Outputs[Flat File Source Output].ExternalColumns[&quot;geolocation_lng&quot;]"
+                      length="50"
+                      lineageId="Package\DFT - STA Geolocation\FF_SRC - Geolocation.Outputs[Flat File Source Output].Columns[&quot;geolocation_lng&quot;]"
+                      name="&quot;geolocation_lng&quot;"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - STA Geolocation\FF_SRC - Geolocation.Outputs[Flat File Source Output].Columns[&quot;geolocation_city&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - STA Geolocation\FF_SRC - Geolocation.Outputs[Flat File Source Output].ExternalColumns[&quot;geolocation_city&quot;]"
+                      length="50"
+                      lineageId="Package\DFT - STA Geolocation\FF_SRC - Geolocation.Outputs[Flat File Source Output].Columns[&quot;geolocation_city&quot;]"
+                      name="&quot;geolocation_city&quot;"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - STA Geolocation\FF_SRC - Geolocation.Outputs[Flat File Source Output].Columns[&quot;geolocation_state&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - STA Geolocation\FF_SRC - Geolocation.Outputs[Flat File Source Output].ExternalColumns[&quot;geolocation_state&quot;]"
+                      length="50"
+                      lineageId="Package\DFT - STA Geolocation\FF_SRC - Geolocation.Outputs[Flat File Source Output].Columns[&quot;geolocation_state&quot;]"
+                      name="&quot;geolocation_state&quot;"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - STA Geolocation\FF_SRC - Geolocation.Outputs[Flat File Source Output].ExternalColumns[&quot;geolocation_zip_code_prefix&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="&quot;geolocation_zip_code_prefix&quot;" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - STA Geolocation\FF_SRC - Geolocation.Outputs[Flat File Source Output].ExternalColumns[&quot;geolocation_lat&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="&quot;geolocation_lat&quot;" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - STA Geolocation\FF_SRC - Geolocation.Outputs[Flat File Source Output].ExternalColumns[&quot;geolocation_lng&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="&quot;geolocation_lng&quot;" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - STA Geolocation\FF_SRC - Geolocation.Outputs[Flat File Source Output].ExternalColumns[&quot;geolocation_city&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="&quot;geolocation_city&quot;" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - STA Geolocation\FF_SRC - Geolocation.Outputs[Flat File Source Output].ExternalColumns[&quot;geolocation_state&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="&quot;geolocation_state&quot;" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT - STA Geolocation\FF_SRC - Geolocation.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - STA Geolocation\FF_SRC - Geolocation.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\DFT - STA Geolocation\FF_SRC - Geolocation.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\DFT - STA Geolocation\FF_SRC - Geolocation.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - STA Geolocation\FF_SRC - Geolocation.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - STA Geolocation\FF_SRC - Geolocation.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - STA Geolocation\FF_SRC - Geolocation.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - STA Geolocation\OLE_DST - STA Geolocation"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE_DST - STA Geolocation"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Geolocation]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - STA Geolocation\OLE_DST - STA Geolocation.Connections[OleDbConnection]"
+                  connectionManagerID="{E3094E46-AA67-4561-B78B-5EC884184F3F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.Project_STA]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - STA Geolocation\OLE_DST - STA Geolocation.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - STA Geolocation\OLE_DST - STA Geolocation.Inputs[OLE DB Destination Input].Columns[&quot;geolocation_zip_code_prefix&quot;]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="&quot;geolocation_zip_code_prefix&quot;"
+                      externalMetadataColumnId="Package\DFT - STA Geolocation\OLE_DST - STA Geolocation.Inputs[OLE DB Destination Input].ExternalColumns[&quot;geolocation_zip_code_prefix&quot;]"
+                      lineageId="Package\DFT - STA Geolocation\FF_SRC - Geolocation.Outputs[Flat File Source Output].Columns[&quot;geolocation_zip_code_prefix&quot;]" />
+                    <inputColumn
+                      refId="Package\DFT - STA Geolocation\OLE_DST - STA Geolocation.Inputs[OLE DB Destination Input].Columns[&quot;geolocation_lat&quot;]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="&quot;geolocation_lat&quot;"
+                      externalMetadataColumnId="Package\DFT - STA Geolocation\OLE_DST - STA Geolocation.Inputs[OLE DB Destination Input].ExternalColumns[&quot;geolocation_lat&quot;]"
+                      lineageId="Package\DFT - STA Geolocation\FF_SRC - Geolocation.Outputs[Flat File Source Output].Columns[&quot;geolocation_lat&quot;]" />
+                    <inputColumn
+                      refId="Package\DFT - STA Geolocation\OLE_DST - STA Geolocation.Inputs[OLE DB Destination Input].Columns[&quot;geolocation_lng&quot;]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="&quot;geolocation_lng&quot;"
+                      externalMetadataColumnId="Package\DFT - STA Geolocation\OLE_DST - STA Geolocation.Inputs[OLE DB Destination Input].ExternalColumns[&quot;geolocation_lng&quot;]"
+                      lineageId="Package\DFT - STA Geolocation\FF_SRC - Geolocation.Outputs[Flat File Source Output].Columns[&quot;geolocation_lng&quot;]" />
+                    <inputColumn
+                      refId="Package\DFT - STA Geolocation\OLE_DST - STA Geolocation.Inputs[OLE DB Destination Input].Columns[&quot;geolocation_city&quot;]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="&quot;geolocation_city&quot;"
+                      externalMetadataColumnId="Package\DFT - STA Geolocation\OLE_DST - STA Geolocation.Inputs[OLE DB Destination Input].ExternalColumns[&quot;geolocation_city&quot;]"
+                      lineageId="Package\DFT - STA Geolocation\FF_SRC - Geolocation.Outputs[Flat File Source Output].Columns[&quot;geolocation_city&quot;]" />
+                    <inputColumn
+                      refId="Package\DFT - STA Geolocation\OLE_DST - STA Geolocation.Inputs[OLE DB Destination Input].Columns[&quot;geolocation_state&quot;]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="&quot;geolocation_state&quot;"
+                      externalMetadataColumnId="Package\DFT - STA Geolocation\OLE_DST - STA Geolocation.Inputs[OLE DB Destination Input].ExternalColumns[&quot;geolocation_state&quot;]"
+                      lineageId="Package\DFT - STA Geolocation\FF_SRC - Geolocation.Outputs[Flat File Source Output].Columns[&quot;geolocation_state&quot;]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - STA Geolocation\OLE_DST - STA Geolocation.Inputs[OLE DB Destination Input].ExternalColumns[&quot;geolocation_zip_code_prefix&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="&quot;geolocation_zip_code_prefix&quot;" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - STA Geolocation\OLE_DST - STA Geolocation.Inputs[OLE DB Destination Input].ExternalColumns[&quot;geolocation_lat&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="&quot;geolocation_lat&quot;" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - STA Geolocation\OLE_DST - STA Geolocation.Inputs[OLE DB Destination Input].ExternalColumns[&quot;geolocation_lng&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="&quot;geolocation_lng&quot;" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - STA Geolocation\OLE_DST - STA Geolocation.Inputs[OLE DB Destination Input].ExternalColumns[&quot;geolocation_city&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="&quot;geolocation_city&quot;" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - STA Geolocation\OLE_DST - STA Geolocation.Inputs[OLE DB Destination Input].ExternalColumns[&quot;geolocation_state&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="&quot;geolocation_state&quot;" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - STA Geolocation\OLE_DST - STA Geolocation.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT - STA Geolocation\OLE_DST - STA Geolocation.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - STA Geolocation\OLE_DST - STA Geolocation.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - STA Geolocation\OLE_DST - STA Geolocation.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - STA Geolocation\OLE_DST - STA Geolocation.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - STA Geolocation\OLE_DST - STA Geolocation.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT - STA Geolocation.Paths[Flat File Source Output]"
+              endId="Package\DFT - STA Geolocation\OLE_DST - STA Geolocation.Inputs[OLE DB Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\DFT - STA Geolocation\FF_SRC - Geolocation.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL - TRUNCATE STA Geolocation"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{1a036142-398c-484a-8550-8c361fd86f0d}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL - TRUNCATE STA Geolocation"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E3094E46-AA67-4561-B78B-5EC884184F3F}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.Geolocation" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{2cd9a9ce-c8aa-4992-9c16-83f115d9466d}"
+      DTS:From="Package\SQL - TRUNCATE STA Geolocation"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DFT - STA Geolocation" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="193,42"
+          Id="Package\DFT - STA Geolocation"
+          TopLeft="341,183" />
+        <NodeLayout
+          Size="256,42"
+          Id="Package\SQL - TRUNCATE STA Geolocation"
+          TopLeft="310,56" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="437.75,98">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,85"
+              Start="0,0"
+              End="0,77.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,77.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT - STA Geolocation">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="222,42"
+          Id="Package\DFT - STA Geolocation\OLE_DST - STA Geolocation"
+          TopLeft="287,167" />
+        <NodeLayout
+          Size="190,42"
+          Id="Package\DFT - STA Geolocation\FF_SRC - Geolocation"
+          TopLeft="286,59" />
+        <EdgeLayout
+          Id="Package\DFT - STA Geolocation.Paths[Flat File Source Output]"
+          TopLeft="381,101">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="17,66"
+              Start="0,0"
+              End="17,58.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29"
+                    Point2="0,33"
+                    Point3="4,33" />
+                  <mssgle:LineSegment
+                    End="13,33" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13,33"
+                    Point2="17,33"
+                    Point3="17,37" />
+                  <mssgle:LineSegment
+                    End="17,58.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - STA Geolocation\OLE_DST - STA Geolocation">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

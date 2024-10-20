@@ -1,0 +1,836 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/26/2024 10:08:19 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-MDJ72NE"
+  DTS:CreatorName="DESKTOP-MDJ72NE\HP"
+  DTS:DTSID="{FF4A1326-8E72-404B-AB8A-2B09B271F873}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="28"
+  DTS:VersionGUID="{78257EA5-A153-4550-8A47-9163C5130BB3}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{33AD716A-C30E-4168-88A9-C499C5260A38}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::Filepath]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="order_id"
+              DTS:DTSID="{5282D571-9365-4AAA-9499-B8F7BC91B7C6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="customer_id"
+              DTS:DTSID="{8ECFCF57-6376-4048-9C0A-6871E093BA26}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="order_status"
+              DTS:DTSID="{B8344F76-D1DB-4F19-9967-F9FCC878EB7F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="order_purchase_timestamp"
+              DTS:DTSID="{9EE5DE40-5DDB-40D7-B32F-EA4897CB687C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="order_approved_at"
+              DTS:DTSID="{F303021E-E3FE-4A73-968F-50E639B148C8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="order_delivered_carrier_date"
+              DTS:DTSID="{EC4098AC-6885-4788-A590-5571D93620C1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="order_delivered_customer_date"
+              DTS:DTSID="{E2C246FB-D4B2-41F3-AC41-366DF77E212D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="order_estimated_delivery_date"
+              DTS:DTSID="{C512C9A4-D6F3-4B19-813C-706068F4EAB0}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{28740502-3061-41C5-963B-140A49B0F504}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Filepath">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\FELC - STA Orders files"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{574819DB-0FEC-457D-974D-FB0197DA302A}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FELC - STA Orders files">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{1B87D10D-B405-48D5-8829-26A6262ECAE1}"
+        DTS:ObjectName="{1B87D10D-B405-48D5-8829-26A6262ECAE1}">
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="C:\Users\HP\Desktop\Projects\ETL and DWH\Assignement\DATA" />
+            <FEFEProperty
+              FileSpec="orders_*.csv" />
+            <FEFEProperty
+              FileNameRetrievalType="0" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\FELC - STA Orders files\DFT - STA Orders"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{353739D4-457F-411E-9DCB-DE712E5E4B4D}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT - STA Orders"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="1033"
+                  name="FF_SCR - Orders"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                      connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Output].Columns[order_id]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Output].ExternalColumns[order_id]"
+                          length="50"
+                          lineageId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Output].Columns[order_id]"
+                          name="order_id"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Output].Columns[customer_id]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Output].ExternalColumns[customer_id]"
+                          length="50"
+                          lineageId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Output].Columns[customer_id]"
+                          name="customer_id"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Output].Columns[order_status]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Output].ExternalColumns[order_status]"
+                          length="50"
+                          lineageId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Output].Columns[order_status]"
+                          name="order_status"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Output].Columns[order_purchase_timestamp]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Output].ExternalColumns[order_purchase_timestamp]"
+                          length="50"
+                          lineageId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Output].Columns[order_purchase_timestamp]"
+                          name="order_purchase_timestamp"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Output].Columns[order_approved_at]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Output].ExternalColumns[order_approved_at]"
+                          length="50"
+                          lineageId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Output].Columns[order_approved_at]"
+                          name="order_approved_at"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Output].Columns[order_delivered_carrier_date]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Output].ExternalColumns[order_delivered_carrier_date]"
+                          length="50"
+                          lineageId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Output].Columns[order_delivered_carrier_date]"
+                          name="order_delivered_carrier_date"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Output].Columns[order_delivered_customer_date]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Output].ExternalColumns[order_delivered_customer_date]"
+                          length="50"
+                          lineageId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Output].Columns[order_delivered_customer_date]"
+                          name="order_delivered_customer_date"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Output].Columns[order_estimated_delivery_date]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Output].ExternalColumns[order_estimated_delivery_date]"
+                          length="50"
+                          lineageId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Output].Columns[order_estimated_delivery_date]"
+                          name="order_estimated_delivery_date"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Output].ExternalColumns[order_id]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="order_id" />
+                        <externalMetadataColumn
+                          refId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Output].ExternalColumns[customer_id]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="customer_id" />
+                        <externalMetadataColumn
+                          refId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Output].ExternalColumns[order_status]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="order_status" />
+                        <externalMetadataColumn
+                          refId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Output].ExternalColumns[order_purchase_timestamp]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="order_purchase_timestamp" />
+                        <externalMetadataColumn
+                          refId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Output].ExternalColumns[order_approved_at]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="order_approved_at" />
+                        <externalMetadataColumn
+                          refId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Output].ExternalColumns[order_delivered_carrier_date]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="order_delivered_carrier_date" />
+                        <externalMetadataColumn
+                          refId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Output].ExternalColumns[order_delivered_customer_date]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="order_delivered_customer_date" />
+                        <externalMetadataColumn
+                          refId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Output].ExternalColumns[order_estimated_delivery_date]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="order_estimated_delivery_date" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\FELC - STA Orders files\DFT - STA Orders\OLE_DST - STA Orders"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE_DST - STA Orders"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Orders]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\FELC - STA Orders files\DFT - STA Orders\OLE_DST - STA Orders.Connections[OleDbConnection]"
+                      connectionManagerID="{E3094E46-AA67-4561-B78B-5EC884184F3F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[localhost.Project_STA]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\FELC - STA Orders files\DFT - STA Orders\OLE_DST - STA Orders.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\FELC - STA Orders files\DFT - STA Orders\OLE_DST - STA Orders.Inputs[OLE DB Destination Input].Columns[order_id]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="order_id"
+                          externalMetadataColumnId="Package\FELC - STA Orders files\DFT - STA Orders\OLE_DST - STA Orders.Inputs[OLE DB Destination Input].ExternalColumns[order_id]"
+                          lineageId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Output].Columns[order_id]" />
+                        <inputColumn
+                          refId="Package\FELC - STA Orders files\DFT - STA Orders\OLE_DST - STA Orders.Inputs[OLE DB Destination Input].Columns[customer_id]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="customer_id"
+                          externalMetadataColumnId="Package\FELC - STA Orders files\DFT - STA Orders\OLE_DST - STA Orders.Inputs[OLE DB Destination Input].ExternalColumns[customer_id]"
+                          lineageId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Output].Columns[customer_id]" />
+                        <inputColumn
+                          refId="Package\FELC - STA Orders files\DFT - STA Orders\OLE_DST - STA Orders.Inputs[OLE DB Destination Input].Columns[order_status]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="order_status"
+                          externalMetadataColumnId="Package\FELC - STA Orders files\DFT - STA Orders\OLE_DST - STA Orders.Inputs[OLE DB Destination Input].ExternalColumns[order_status]"
+                          lineageId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Output].Columns[order_status]" />
+                        <inputColumn
+                          refId="Package\FELC - STA Orders files\DFT - STA Orders\OLE_DST - STA Orders.Inputs[OLE DB Destination Input].Columns[order_purchase_timestamp]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="order_purchase_timestamp"
+                          externalMetadataColumnId="Package\FELC - STA Orders files\DFT - STA Orders\OLE_DST - STA Orders.Inputs[OLE DB Destination Input].ExternalColumns[order_purchase_timestamp]"
+                          lineageId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Output].Columns[order_purchase_timestamp]" />
+                        <inputColumn
+                          refId="Package\FELC - STA Orders files\DFT - STA Orders\OLE_DST - STA Orders.Inputs[OLE DB Destination Input].Columns[order_approved_at]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="order_approved_at"
+                          externalMetadataColumnId="Package\FELC - STA Orders files\DFT - STA Orders\OLE_DST - STA Orders.Inputs[OLE DB Destination Input].ExternalColumns[order_approved_at]"
+                          lineageId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Output].Columns[order_approved_at]" />
+                        <inputColumn
+                          refId="Package\FELC - STA Orders files\DFT - STA Orders\OLE_DST - STA Orders.Inputs[OLE DB Destination Input].Columns[order_delivered_carrier_date]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="order_delivered_carrier_date"
+                          externalMetadataColumnId="Package\FELC - STA Orders files\DFT - STA Orders\OLE_DST - STA Orders.Inputs[OLE DB Destination Input].ExternalColumns[order_delivered_carrier_date]"
+                          lineageId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Output].Columns[order_delivered_carrier_date]" />
+                        <inputColumn
+                          refId="Package\FELC - STA Orders files\DFT - STA Orders\OLE_DST - STA Orders.Inputs[OLE DB Destination Input].Columns[order_delivered_customer_date]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="order_delivered_customer_date"
+                          externalMetadataColumnId="Package\FELC - STA Orders files\DFT - STA Orders\OLE_DST - STA Orders.Inputs[OLE DB Destination Input].ExternalColumns[order_delivered_customer_date]"
+                          lineageId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Output].Columns[order_delivered_customer_date]" />
+                        <inputColumn
+                          refId="Package\FELC - STA Orders files\DFT - STA Orders\OLE_DST - STA Orders.Inputs[OLE DB Destination Input].Columns[order_estimated_delivery_date]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="order_estimated_delivery_date"
+                          externalMetadataColumnId="Package\FELC - STA Orders files\DFT - STA Orders\OLE_DST - STA Orders.Inputs[OLE DB Destination Input].ExternalColumns[order_estimated_delivery_date]"
+                          lineageId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Output].Columns[order_estimated_delivery_date]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\FELC - STA Orders files\DFT - STA Orders\OLE_DST - STA Orders.Inputs[OLE DB Destination Input].ExternalColumns[order_id]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="order_id" />
+                        <externalMetadataColumn
+                          refId="Package\FELC - STA Orders files\DFT - STA Orders\OLE_DST - STA Orders.Inputs[OLE DB Destination Input].ExternalColumns[customer_id]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="customer_id" />
+                        <externalMetadataColumn
+                          refId="Package\FELC - STA Orders files\DFT - STA Orders\OLE_DST - STA Orders.Inputs[OLE DB Destination Input].ExternalColumns[order_status]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="order_status" />
+                        <externalMetadataColumn
+                          refId="Package\FELC - STA Orders files\DFT - STA Orders\OLE_DST - STA Orders.Inputs[OLE DB Destination Input].ExternalColumns[order_purchase_timestamp]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="order_purchase_timestamp" />
+                        <externalMetadataColumn
+                          refId="Package\FELC - STA Orders files\DFT - STA Orders\OLE_DST - STA Orders.Inputs[OLE DB Destination Input].ExternalColumns[order_approved_at]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="order_approved_at" />
+                        <externalMetadataColumn
+                          refId="Package\FELC - STA Orders files\DFT - STA Orders\OLE_DST - STA Orders.Inputs[OLE DB Destination Input].ExternalColumns[order_delivered_carrier_date]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="order_delivered_carrier_date" />
+                        <externalMetadataColumn
+                          refId="Package\FELC - STA Orders files\DFT - STA Orders\OLE_DST - STA Orders.Inputs[OLE DB Destination Input].ExternalColumns[order_delivered_customer_date]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="order_delivered_customer_date" />
+                        <externalMetadataColumn
+                          refId="Package\FELC - STA Orders files\DFT - STA Orders\OLE_DST - STA Orders.Inputs[OLE DB Destination Input].ExternalColumns[order_estimated_delivery_date]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="order_estimated_delivery_date" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\FELC - STA Orders files\DFT - STA Orders\OLE_DST - STA Orders.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\FELC - STA Orders files\DFT - STA Orders\OLE_DST - STA Orders.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\FELC - STA Orders files\DFT - STA Orders\OLE_DST - STA Orders.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\FELC - STA Orders files\DFT - STA Orders\OLE_DST - STA Orders.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\FELC - STA Orders files\DFT - STA Orders\OLE_DST - STA Orders.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\FELC - STA Orders files\DFT - STA Orders\OLE_DST - STA Orders.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\FELC - STA Orders files\DFT - STA Orders.Paths[Flat File Source Output]"
+                  endId="Package\FELC - STA Orders files\DFT - STA Orders\OLE_DST - STA Orders.Inputs[OLE DB Destination Input]"
+                  name="Flat File Source Output"
+                  startId="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders.Outputs[Flat File Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{A8FD652F-45B3-4638-A66E-BCB8E2B9AC51}"
+          DTS:ObjectName="{A8FD652F-45B3-4638-A66E-BCB8E2B9AC51}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::Filepath" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL - TRUNCATE STA Orders"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{070D904A-9392-49F3-B6A2-87425ACB3A19}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL - TRUNCATE STA Orders"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E3094E46-AA67-4561-B78B-5EC884184F3F}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.Orders" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{B87158DD-99C7-4E43-99CA-3EC27E5C0B1B}"
+      DTS:From="Package\SQL - TRUNCATE STA Orders"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\FELC - STA Orders files" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="168,42"
+          Id="Package\FELC - STA Orders files\DFT - STA Orders"
+          TopLeft="36,32" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="261,133"
+          Size="261,176"
+          Id="Package\FELC - STA Orders files"
+          TopLeft="304,189" />
+        <NodeLayout
+          Size="231,42"
+          Id="Package\SQL - TRUNCATE STA Orders"
+          TopLeft="315,57" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="432.5,99">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,90"
+              Start="0,0"
+              End="0,82.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,82.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\FELC - STA Orders files\DFT - STA Orders">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="165,42"
+          Id="Package\FELC - STA Orders files\DFT - STA Orders\FF_SCR - Orders"
+          TopLeft="275,34" />
+        <NodeLayout
+          Size="197,42"
+          Id="Package\FELC - STA Orders files\DFT - STA Orders\OLE_DST - STA Orders"
+          TopLeft="269,148" />
+        <EdgeLayout
+          Id="Package\FELC - STA Orders files\DFT - STA Orders.Paths[Flat File Source Output]"
+          TopLeft="357.5,76">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10,72"
+              Start="0,0"
+              End="10,64.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32"
+                    Point2="0,36"
+                    Point3="4,36" />
+                  <mssgle:LineSegment
+                    End="6,36" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6,36"
+                    Point2="10,36"
+                    Point3="10,40" />
+                  <mssgle:LineSegment
+                    End="10,64.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\FELC - STA Orders files\DFT - STA Orders\OLE_DST - STA Orders">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

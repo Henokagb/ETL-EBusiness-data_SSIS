@@ -1,0 +1,1276 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/18/2024 10:01:40 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-MDJ72NE"
+  DTS:CreatorName="DESKTOP-MDJ72NE\HP"
+  DTS:DTSID="{1936D895-784B-4A7E-B7E3-F0EC7CEE17FC}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="DWH_DimCustomers"
+  DTS:PackageType="5"
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{F45D23EC-5E5C-45EC-99D2-195DE7619819}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT - DWH Dimension Customers"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{7360BC89-833F-4E30-A136-B750DB8891FC}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT - DWH Dimension Customers"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT - DWH Dimension Customers\CMD - Updates"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="CMD - Updates"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DimCustomers]
+   SET [customer_city] = ?
+      ,[customer_state] = ?
+      ,[customer_zip_code_prefix] = ?
+      ,[geolocation_lng] = ?
+      ,[geolocation_lat] = ?
+ WHERE [customer_id] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - DWH Dimension Customers\CMD - Updates.Connections[OleDbConnection]"
+                  connectionManagerID="{CAD7FEE1-69E1-4519-8EBE-3BE25A51F66C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.Project_DWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - DWH Dimension Customers\CMD - Updates.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - DWH Dimension Customers\CMD - Updates.Inputs[OLE DB Command Input].Columns[customer_city]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="customer_city"
+                      externalMetadataColumnId="Package\DFT - DWH Dimension Customers\CMD - Updates.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].Columns[customer_city]" />
+                    <inputColumn
+                      refId="Package\DFT - DWH Dimension Customers\CMD - Updates.Inputs[OLE DB Command Input].Columns[customer_state]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="customer_state"
+                      externalMetadataColumnId="Package\DFT - DWH Dimension Customers\CMD - Updates.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].Columns[customer_state]" />
+                    <inputColumn
+                      refId="Package\DFT - DWH Dimension Customers\CMD - Updates.Inputs[OLE DB Command Input].Columns[customer_zip_code_prefix]"
+                      cachedDataType="numeric"
+                      cachedName="customer_zip_code_prefix"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\DFT - DWH Dimension Customers\CMD - Updates.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].Columns[customer_zip_code_prefix]" />
+                    <inputColumn
+                      refId="Package\DFT - DWH Dimension Customers\CMD - Updates.Inputs[OLE DB Command Input].Columns[geolocation_lng]"
+                      cachedDataType="numeric"
+                      cachedName="geolocation_lng"
+                      cachedPrecision="18"
+                      cachedScale="10"
+                      externalMetadataColumnId="Package\DFT - DWH Dimension Customers\CMD - Updates.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].Columns[geolocation_lng]" />
+                    <inputColumn
+                      refId="Package\DFT - DWH Dimension Customers\CMD - Updates.Inputs[OLE DB Command Input].Columns[geolocation_lat]"
+                      cachedDataType="numeric"
+                      cachedName="geolocation_lat"
+                      cachedPrecision="18"
+                      cachedScale="10"
+                      externalMetadataColumnId="Package\DFT - DWH Dimension Customers\CMD - Updates.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].Columns[geolocation_lat]" />
+                    <inputColumn
+                      refId="Package\DFT - DWH Dimension Customers\CMD - Updates.Inputs[OLE DB Command Input].Columns[customer_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="customer_id"
+                      externalMetadataColumnId="Package\DFT - DWH Dimension Customers\CMD - Updates.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      lineageId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].Columns[customer_id]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - DWH Dimension Customers\CMD - Updates.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT - DWH Dimension Customers\CMD - Updates.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT - DWH Dimension Customers\CMD - Updates.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="numeric"
+                      name="Param_2"
+                      precision="18">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT - DWH Dimension Customers\CMD - Updates.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="numeric"
+                      name="Param_3"
+                      precision="18"
+                      scale="10">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT - DWH Dimension Customers\CMD - Updates.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      dataType="numeric"
+                      name="Param_4"
+                      precision="18"
+                      scale="10">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT - DWH Dimension Customers\CMD - Updates.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - DWH Dimension Customers\CMD - Updates.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\DFT - DWH Dimension Customers\CMD - Updates.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - DWH Dimension Customers\CMD - Updates.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\DFT - DWH Dimension Customers\CMD - Updates.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Customers\CMD - Updates.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - DWH Dimension Customers\CMD - Updates.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Customers\CMD - Updates.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - DWH Dimension Customers\CMD - Updates.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - DWH Dimension Customers\LKP - Any Changes ?"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="LKP - Any Changes ?"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimCustomers]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimCustomers]) [refTable]
+where [refTable].[customer_id] = ? and [refTable].[customer_city] = ? and [refTable].[customer_state] = ? and [refTable].[customer_zip_code_prefix] = ? and [refTable].[geolocation_lng] = ? and [refTable].[geolocation_lat] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="customerKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="customer_id" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="customer_city" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="customer_state" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="customer_zip_code_prefix" dataType="DT_NUMERIC" length="0" precision="18" scale="0" codePage="0"/&gt;&lt;referenceColumn name="geolocation_lng" dataType="DT_NUMERIC" length="0" precision="18" scale="10" codePage="0"/&gt;&lt;referenceColumn name="geolocation_lat" dataType="DT_NUMERIC" length="0" precision="18" scale="10" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].Columns[customer_id]};#{Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].Columns[customer_city]};#{Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].Columns[customer_state]};#{Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].Columns[customer_zip_code_prefix]};#{Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].Columns[geolocation_lng]};#{Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].Columns[geolocation_lat]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - DWH Dimension Customers\LKP - Any Changes ?.Connections[OleDbConnection]"
+                  connectionManagerID="{CAD7FEE1-69E1-4519-8EBE-3BE25A51F66C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.Project_DWH]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - DWH Dimension Customers\LKP - Any Changes ?.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - DWH Dimension Customers\LKP - Any Changes ?.Inputs[Lookup Input].Columns[customer_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="customer_id"
+                      lineageId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].Columns[customer_id]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">customer_id</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - DWH Dimension Customers\LKP - Any Changes ?.Inputs[Lookup Input].Columns[customer_city]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="customer_city"
+                      lineageId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].Columns[customer_city]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">customer_city</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - DWH Dimension Customers\LKP - Any Changes ?.Inputs[Lookup Input].Columns[customer_state]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="customer_state"
+                      lineageId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].Columns[customer_state]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">customer_state</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - DWH Dimension Customers\LKP - Any Changes ?.Inputs[Lookup Input].Columns[customer_zip_code_prefix]"
+                      cachedDataType="numeric"
+                      cachedName="customer_zip_code_prefix"
+                      cachedPrecision="18"
+                      lineageId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].Columns[customer_zip_code_prefix]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">customer_zip_code_prefix</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - DWH Dimension Customers\LKP - Any Changes ?.Inputs[Lookup Input].Columns[geolocation_lng]"
+                      cachedDataType="numeric"
+                      cachedName="geolocation_lng"
+                      cachedPrecision="18"
+                      cachedScale="10"
+                      lineageId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].Columns[geolocation_lng]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">geolocation_lng</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - DWH Dimension Customers\LKP - Any Changes ?.Inputs[Lookup Input].Columns[geolocation_lat]"
+                      cachedDataType="numeric"
+                      cachedName="geolocation_lat"
+                      cachedPrecision="18"
+                      cachedScale="10"
+                      lineageId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].Columns[geolocation_lat]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">geolocation_lat</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - DWH Dimension Customers\LKP - Any Changes ?.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DFT - DWH Dimension Customers\LKP - Any Changes ?.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - DWH Dimension Customers\LKP - Any Changes ?.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DFT - DWH Dimension Customers\LKP - Any Changes ?.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - DWH Dimension Customers\LKP - Any Changes ?.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DFT - DWH Dimension Customers\LKP - Any Changes ?.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Customers\LKP - Any Changes ?.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - DWH Dimension Customers\LKP - Any Changes ?.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Customers\LKP - Any Changes ?.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - DWH Dimension Customers\LKP - Any Changes ?.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - DWH Dimension Customers\LKP - customerID"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="LKP - customerID"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimCustomers]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimCustomers]) [refTable]
+where [refTable].[customer_id] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="customerKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="customer_id" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="customer_city" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="customer_state" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="customer_zip_code_prefix" dataType="DT_NUMERIC" length="0" precision="18" scale="0" codePage="0"/&gt;&lt;referenceColumn name="geolocation_lng" dataType="DT_NUMERIC" length="0" precision="18" scale="10" codePage="0"/&gt;&lt;referenceColumn name="geolocation_lat" dataType="DT_NUMERIC" length="0" precision="18" scale="10" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].Columns[customer_id]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - DWH Dimension Customers\LKP - customerID.Connections[OleDbConnection]"
+                  connectionManagerID="{CAD7FEE1-69E1-4519-8EBE-3BE25A51F66C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.Project_DWH]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - DWH Dimension Customers\LKP - customerID.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - DWH Dimension Customers\LKP - customerID.Inputs[Lookup Input].Columns[customer_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="customer_id"
+                      lineageId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].Columns[customer_id]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">customer_id</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - DWH Dimension Customers\LKP - customerID.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DFT - DWH Dimension Customers\LKP - customerID.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - DWH Dimension Customers\LKP - customerID.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DFT - DWH Dimension Customers\LKP - customerID.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - DWH Dimension Customers\LKP - customerID.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DFT - DWH Dimension Customers\LKP - customerID.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Customers\LKP - customerID.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - DWH Dimension Customers\LKP - customerID.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Customers\LKP - customerID.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - DWH Dimension Customers\LKP - customerID.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - DWH Dimension Customers\OLE_DST - DWH DimCustomers"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE_DST - DWH DimCustomers"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimCustomers]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - DWH Dimension Customers\OLE_DST - DWH DimCustomers.Connections[OleDbConnection]"
+                  connectionManagerID="{CAD7FEE1-69E1-4519-8EBE-3BE25A51F66C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.Project_DWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - DWH Dimension Customers\OLE_DST - DWH DimCustomers.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - DWH Dimension Customers\OLE_DST - DWH DimCustomers.Inputs[OLE DB Destination Input].Columns[customer_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="customer_id"
+                      externalMetadataColumnId="Package\DFT - DWH Dimension Customers\OLE_DST - DWH DimCustomers.Inputs[OLE DB Destination Input].ExternalColumns[customer_id]"
+                      lineageId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].Columns[customer_id]" />
+                    <inputColumn
+                      refId="Package\DFT - DWH Dimension Customers\OLE_DST - DWH DimCustomers.Inputs[OLE DB Destination Input].Columns[customer_city]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="customer_city"
+                      externalMetadataColumnId="Package\DFT - DWH Dimension Customers\OLE_DST - DWH DimCustomers.Inputs[OLE DB Destination Input].ExternalColumns[customer_city]"
+                      lineageId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].Columns[customer_city]" />
+                    <inputColumn
+                      refId="Package\DFT - DWH Dimension Customers\OLE_DST - DWH DimCustomers.Inputs[OLE DB Destination Input].Columns[customer_state]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="customer_state"
+                      externalMetadataColumnId="Package\DFT - DWH Dimension Customers\OLE_DST - DWH DimCustomers.Inputs[OLE DB Destination Input].ExternalColumns[customer_state]"
+                      lineageId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].Columns[customer_state]" />
+                    <inputColumn
+                      refId="Package\DFT - DWH Dimension Customers\OLE_DST - DWH DimCustomers.Inputs[OLE DB Destination Input].Columns[customer_zip_code_prefix]"
+                      cachedDataType="numeric"
+                      cachedName="customer_zip_code_prefix"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\DFT - DWH Dimension Customers\OLE_DST - DWH DimCustomers.Inputs[OLE DB Destination Input].ExternalColumns[customer_zip_code_prefix]"
+                      lineageId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].Columns[customer_zip_code_prefix]" />
+                    <inputColumn
+                      refId="Package\DFT - DWH Dimension Customers\OLE_DST - DWH DimCustomers.Inputs[OLE DB Destination Input].Columns[geolocation_lng]"
+                      cachedDataType="numeric"
+                      cachedName="geolocation_lng"
+                      cachedPrecision="18"
+                      cachedScale="10"
+                      externalMetadataColumnId="Package\DFT - DWH Dimension Customers\OLE_DST - DWH DimCustomers.Inputs[OLE DB Destination Input].ExternalColumns[geolocation_lng]"
+                      lineageId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].Columns[geolocation_lng]" />
+                    <inputColumn
+                      refId="Package\DFT - DWH Dimension Customers\OLE_DST - DWH DimCustomers.Inputs[OLE DB Destination Input].Columns[geolocation_lat]"
+                      cachedDataType="numeric"
+                      cachedName="geolocation_lat"
+                      cachedPrecision="18"
+                      cachedScale="10"
+                      externalMetadataColumnId="Package\DFT - DWH Dimension Customers\OLE_DST - DWH DimCustomers.Inputs[OLE DB Destination Input].ExternalColumns[geolocation_lat]"
+                      lineageId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].Columns[geolocation_lat]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - DWH Dimension Customers\OLE_DST - DWH DimCustomers.Inputs[OLE DB Destination Input].ExternalColumns[customerKey]"
+                      dataType="i4"
+                      name="customerKey" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - DWH Dimension Customers\OLE_DST - DWH DimCustomers.Inputs[OLE DB Destination Input].ExternalColumns[customer_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="customer_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - DWH Dimension Customers\OLE_DST - DWH DimCustomers.Inputs[OLE DB Destination Input].ExternalColumns[customer_city]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="customer_city" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - DWH Dimension Customers\OLE_DST - DWH DimCustomers.Inputs[OLE DB Destination Input].ExternalColumns[customer_state]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="customer_state" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - DWH Dimension Customers\OLE_DST - DWH DimCustomers.Inputs[OLE DB Destination Input].ExternalColumns[customer_zip_code_prefix]"
+                      dataType="numeric"
+                      name="customer_zip_code_prefix"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - DWH Dimension Customers\OLE_DST - DWH DimCustomers.Inputs[OLE DB Destination Input].ExternalColumns[geolocation_lng]"
+                      dataType="numeric"
+                      name="geolocation_lng"
+                      precision="18"
+                      scale="10" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - DWH Dimension Customers\OLE_DST - DWH DimCustomers.Inputs[OLE DB Destination Input].ExternalColumns[geolocation_lat]"
+                      dataType="numeric"
+                      name="geolocation_lat"
+                      precision="18"
+                      scale="10" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - DWH Dimension Customers\OLE_DST - DWH DimCustomers.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT - DWH Dimension Customers\OLE_DST - DWH DimCustomers.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Customers\OLE_DST - DWH DimCustomers.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - DWH Dimension Customers\OLE_DST - DWH DimCustomers.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Customers\OLE_DST - DWH DimCustomers.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - DWH Dimension Customers\OLE_DST - DWH DimCustomers.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE_SRC - ODS Customers"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Customers]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Connections[OleDbConnection]"
+                  connectionManagerID="{30B8B418-DA1B-4518-8520-11990357EF4C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.Project_ODS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].Columns[customer_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].ExternalColumns[customer_id]"
+                      length="50"
+                      lineageId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].Columns[customer_id]"
+                      name="customer_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].Columns[customer_city]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].ExternalColumns[customer_city]"
+                      length="50"
+                      lineageId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].Columns[customer_city]"
+                      name="customer_city"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].Columns[customer_state]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].ExternalColumns[customer_state]"
+                      length="50"
+                      lineageId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].Columns[customer_state]"
+                      name="customer_state"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].Columns[customer_zip_code_prefix]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].ExternalColumns[customer_zip_code_prefix]"
+                      lineageId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].Columns[customer_zip_code_prefix]"
+                      name="customer_zip_code_prefix"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].Columns[geolocation_lng]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].ExternalColumns[geolocation_lng]"
+                      lineageId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].Columns[geolocation_lng]"
+                      name="geolocation_lng"
+                      precision="18"
+                      scale="10"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].Columns[geolocation_lat]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].ExternalColumns[geolocation_lat]"
+                      lineageId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].Columns[geolocation_lat]"
+                      name="geolocation_lat"
+                      precision="18"
+                      scale="10"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].ExternalColumns[customer_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="customer_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].ExternalColumns[customer_city]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="customer_city" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].ExternalColumns[customer_state]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="customer_state" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].ExternalColumns[customer_zip_code_prefix]"
+                      dataType="numeric"
+                      name="customer_zip_code_prefix"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].ExternalColumns[geolocation_lng]"
+                      dataType="numeric"
+                      name="geolocation_lng"
+                      precision="18"
+                      scale="10" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output].ExternalColumns[geolocation_lat]"
+                      dataType="numeric"
+                      name="geolocation_lat"
+                      precision="18"
+                      scale="10" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Error Output].Columns[customer_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Error Output].Columns[customer_id]"
+                      name="customer_id" />
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Error Output].Columns[customer_city]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Error Output].Columns[customer_city]"
+                      name="customer_city" />
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Error Output].Columns[customer_state]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Error Output].Columns[customer_state]"
+                      name="customer_state" />
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Error Output].Columns[customer_zip_code_prefix]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Error Output].Columns[customer_zip_code_prefix]"
+                      name="customer_zip_code_prefix"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Error Output].Columns[geolocation_lng]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Error Output].Columns[geolocation_lng]"
+                      name="geolocation_lng"
+                      precision="18"
+                      scale="10" />
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Error Output].Columns[geolocation_lat]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Error Output].Columns[geolocation_lat]"
+                      name="geolocation_lat"
+                      precision="18"
+                      scale="10" />
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT - DWH Dimension Customers.Paths[Lookup Match Output]"
+              endId="Package\DFT - DWH Dimension Customers\LKP - Any Changes ?.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\DFT - DWH Dimension Customers\LKP - customerID.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DFT - DWH Dimension Customers.Paths[Lookup No Match Output]"
+              endId="Package\DFT - DWH Dimension Customers\OLE_DST - DWH DimCustomers.Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\DFT - DWH Dimension Customers\LKP - customerID.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\DFT - DWH Dimension Customers.Paths[Lookup No Match Output1]"
+              endId="Package\DFT - DWH Dimension Customers\CMD - Updates.Inputs[OLE DB Command Input]"
+              name="Lookup No Match Output"
+              startId="Package\DFT - DWH Dimension Customers\LKP - Any Changes ?.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\DFT - DWH Dimension Customers.Paths[OLE DB Source Output]"
+              endId="Package\DFT - DWH Dimension Customers\LKP - customerID.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="247,42"
+          Id="Package\DFT - DWH Dimension Customers"
+          TopLeft="311,149" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT - DWH Dimension Customers">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="220,42"
+          Id="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers"
+          TopLeft="316,49" />
+        <NodeLayout
+          Size="184,42"
+          Id="Package\DFT - DWH Dimension Customers\LKP - Any Changes ?"
+          TopLeft="606,154" />
+        <NodeLayout
+          Size="241,42"
+          Id="Package\DFT - DWH Dimension Customers\OLE_DST - DWH DimCustomers"
+          TopLeft="308,262" />
+        <NodeLayout
+          Size="155,42"
+          Id="Package\DFT - DWH Dimension Customers\CMD - Updates"
+          TopLeft="816,153" />
+        <NodeLayout
+          Size="166,42"
+          Id="Package\DFT - DWH Dimension Customers\LKP - customerID"
+          TopLeft="346,152" />
+        <EdgeLayout
+          Id="Package\DFT - DWH Dimension Customers.Paths[OLE DB Source Output]"
+          TopLeft="427.5,91">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,61"
+              Start="0,0"
+              End="0,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - DWH Dimension Customers.Paths[Lookup No Match Output1]"
+          TopLeft="790,174.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="26,0"
+              Start="0,0"
+              End="18.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="18.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-46.55638671875,5,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - DWH Dimension Customers.Paths[Lookup No Match Output]"
+          TopLeft="428.75,194">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,68"
+              Start="0,0"
+              End="0,60.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,60.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,24.4453125,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - DWH Dimension Customers.Paths[Lookup Match Output]"
+          TopLeft="512,174">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="94,0"
+              Start="0,0"
+              End="86.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="86.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-4.94138671875,5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - DWH Dimension Customers\OLE_DST - DWH DimCustomers">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - DWH Dimension Customers\LKP - customerID">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimCustomers]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - DWH Dimension Customers\LKP - Any Changes ?">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimCustomers]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - DWH Dimension Customers\OLE_SRC - ODS Customers">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

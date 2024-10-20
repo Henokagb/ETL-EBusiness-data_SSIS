@@ -1,0 +1,1392 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/18/2024 11:12:12 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-MDJ72NE"
+  DTS:CreatorName="DESKTOP-MDJ72NE\HP"
+  DTS:DTSID="{EE49FAA0-4E17-4A40-90AB-EF4B6FD172FC}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{16018B7F-039E-4FBA-A48B-971FC2EABB63}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT - DWH Dimension Products"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{7AB8DA91-BEEA-453E-A20F-C240D305A7A7}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT - DWH Dimension Products"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT - DWH Dimension Products\CMD - Update"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="CMD - Update"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DimProducts]
+   SET [product_category_name] = ?
+      ,[product_description_lenght] = ?
+      ,[product_photos_qty] = ?
+      ,[product_weight_g] = ?
+      ,[product_length_cm] = ?
+      ,[product_height_cm] = ?
+      ,[product_width_cm] = ?
+ WHERE [product_id] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - DWH Dimension Products\CMD - Update.Connections[OleDbConnection]"
+                  connectionManagerID="{CAD7FEE1-69E1-4519-8EBE-3BE25A51F66C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.Project_DWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - DWH Dimension Products\CMD - Update.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - DWH Dimension Products\CMD - Update.Inputs[OLE DB Command Input].Columns[product_category_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="product_category_name"
+                      externalMetadataColumnId="Package\DFT - DWH Dimension Products\CMD - Update.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_category_name]" />
+                    <inputColumn
+                      refId="Package\DFT - DWH Dimension Products\CMD - Update.Inputs[OLE DB Command Input].Columns[product_description_lenght]"
+                      cachedDataType="numeric"
+                      cachedName="product_description_lenght"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\DFT - DWH Dimension Products\CMD - Update.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_description_lenght]" />
+                    <inputColumn
+                      refId="Package\DFT - DWH Dimension Products\CMD - Update.Inputs[OLE DB Command Input].Columns[product_photos_qty]"
+                      cachedDataType="numeric"
+                      cachedName="product_photos_qty"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\DFT - DWH Dimension Products\CMD - Update.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_photos_qty]" />
+                    <inputColumn
+                      refId="Package\DFT - DWH Dimension Products\CMD - Update.Inputs[OLE DB Command Input].Columns[product_weight_g]"
+                      cachedDataType="numeric"
+                      cachedName="product_weight_g"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\DFT - DWH Dimension Products\CMD - Update.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_weight_g]" />
+                    <inputColumn
+                      refId="Package\DFT - DWH Dimension Products\CMD - Update.Inputs[OLE DB Command Input].Columns[product_length_cm]"
+                      cachedDataType="numeric"
+                      cachedName="product_length_cm"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\DFT - DWH Dimension Products\CMD - Update.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_length_cm]" />
+                    <inputColumn
+                      refId="Package\DFT - DWH Dimension Products\CMD - Update.Inputs[OLE DB Command Input].Columns[product_height_cm]"
+                      cachedDataType="numeric"
+                      cachedName="product_height_cm"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\DFT - DWH Dimension Products\CMD - Update.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      lineageId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_height_cm]" />
+                    <inputColumn
+                      refId="Package\DFT - DWH Dimension Products\CMD - Update.Inputs[OLE DB Command Input].Columns[product_width_cm]"
+                      cachedDataType="numeric"
+                      cachedName="product_width_cm"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\DFT - DWH Dimension Products\CMD - Update.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      lineageId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_width_cm]" />
+                    <inputColumn
+                      refId="Package\DFT - DWH Dimension Products\CMD - Update.Inputs[OLE DB Command Input].Columns[product_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="product_id"
+                      externalMetadataColumnId="Package\DFT - DWH Dimension Products\CMD - Update.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      lineageId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_id]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - DWH Dimension Products\CMD - Update.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT - DWH Dimension Products\CMD - Update.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="numeric"
+                      name="Param_1"
+                      precision="18">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT - DWH Dimension Products\CMD - Update.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="numeric"
+                      name="Param_2"
+                      precision="18">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT - DWH Dimension Products\CMD - Update.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="numeric"
+                      name="Param_3"
+                      precision="18">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT - DWH Dimension Products\CMD - Update.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      dataType="numeric"
+                      name="Param_4"
+                      precision="18">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT - DWH Dimension Products\CMD - Update.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      dataType="numeric"
+                      name="Param_5"
+                      precision="18">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT - DWH Dimension Products\CMD - Update.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      dataType="numeric"
+                      name="Param_6"
+                      precision="18">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT - DWH Dimension Products\CMD - Update.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - DWH Dimension Products\CMD - Update.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\DFT - DWH Dimension Products\CMD - Update.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - DWH Dimension Products\CMD - Update.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\DFT - DWH Dimension Products\CMD - Update.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Products\CMD - Update.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - DWH Dimension Products\CMD - Update.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Products\CMD - Update.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - DWH Dimension Products\CMD - Update.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - DWH Dimension Products\LKP - Any Changes"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="LKP - Any Changes"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimProducts]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimProducts]) [refTable]
+where [refTable].[product_id] = ? and [refTable].[product_category_name] = ? and [refTable].[product_description_lenght] = ? and [refTable].[product_photos_qty] = ? and [refTable].[product_weight_g] = ? and [refTable].[product_length_cm] = ? and [refTable].[product_height_cm] = ? and [refTable].[product_width_cm] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="productKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="product_id" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="product_category_name" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="product_description_lenght" dataType="DT_NUMERIC" length="0" precision="18" scale="0" codePage="0"/&gt;&lt;referenceColumn name="product_photos_qty" dataType="DT_NUMERIC" length="0" precision="18" scale="0" codePage="0"/&gt;&lt;referenceColumn name="product_weight_g" dataType="DT_NUMERIC" length="0" precision="18" scale="0" codePage="0"/&gt;&lt;referenceColumn name="product_length_cm" dataType="DT_NUMERIC" length="0" precision="18" scale="0" codePage="0"/&gt;&lt;referenceColumn name="product_height_cm" dataType="DT_NUMERIC" length="0" precision="18" scale="0" codePage="0"/&gt;&lt;referenceColumn name="product_width_cm" dataType="DT_NUMERIC" length="0" precision="18" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_id]};#{Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_category_name]};#{Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_description_lenght]};#{Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_photos_qty]};#{Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_weight_g]};#{Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_length_cm]};#{Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_height_cm]};#{Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_width_cm]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - DWH Dimension Products\LKP - Any Changes.Connections[OleDbConnection]"
+                  connectionManagerID="{CAD7FEE1-69E1-4519-8EBE-3BE25A51F66C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.Project_DWH]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - DWH Dimension Products\LKP - Any Changes.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - DWH Dimension Products\LKP - Any Changes.Inputs[Lookup Input].Columns[product_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="product_id"
+                      lineageId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_id]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">product_id</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - DWH Dimension Products\LKP - Any Changes.Inputs[Lookup Input].Columns[product_category_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="product_category_name"
+                      lineageId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_category_name]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">product_category_name</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - DWH Dimension Products\LKP - Any Changes.Inputs[Lookup Input].Columns[product_description_lenght]"
+                      cachedDataType="numeric"
+                      cachedName="product_description_lenght"
+                      cachedPrecision="18"
+                      lineageId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_description_lenght]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">product_description_lenght</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - DWH Dimension Products\LKP - Any Changes.Inputs[Lookup Input].Columns[product_photos_qty]"
+                      cachedDataType="numeric"
+                      cachedName="product_photos_qty"
+                      cachedPrecision="18"
+                      lineageId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_photos_qty]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">product_photos_qty</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - DWH Dimension Products\LKP - Any Changes.Inputs[Lookup Input].Columns[product_weight_g]"
+                      cachedDataType="numeric"
+                      cachedName="product_weight_g"
+                      cachedPrecision="18"
+                      lineageId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_weight_g]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">product_weight_g</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - DWH Dimension Products\LKP - Any Changes.Inputs[Lookup Input].Columns[product_length_cm]"
+                      cachedDataType="numeric"
+                      cachedName="product_length_cm"
+                      cachedPrecision="18"
+                      lineageId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_length_cm]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">product_length_cm</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - DWH Dimension Products\LKP - Any Changes.Inputs[Lookup Input].Columns[product_height_cm]"
+                      cachedDataType="numeric"
+                      cachedName="product_height_cm"
+                      cachedPrecision="18"
+                      lineageId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_height_cm]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">product_height_cm</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - DWH Dimension Products\LKP - Any Changes.Inputs[Lookup Input].Columns[product_width_cm]"
+                      cachedDataType="numeric"
+                      cachedName="product_width_cm"
+                      cachedPrecision="18"
+                      lineageId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_width_cm]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">product_width_cm</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - DWH Dimension Products\LKP - Any Changes.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DFT - DWH Dimension Products\LKP - Any Changes.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - DWH Dimension Products\LKP - Any Changes.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DFT - DWH Dimension Products\LKP - Any Changes.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - DWH Dimension Products\LKP - Any Changes.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DFT - DWH Dimension Products\LKP - Any Changes.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Products\LKP - Any Changes.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - DWH Dimension Products\LKP - Any Changes.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Products\LKP - Any Changes.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - DWH Dimension Products\LKP - Any Changes.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - DWH Dimension Products\LKP - ProductId"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="LKP - ProductId"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimProducts]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimProducts]) [refTable]
+where [refTable].[product_id] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="productKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="product_id" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="product_category_name" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="product_description_lenght" dataType="DT_NUMERIC" length="0" precision="18" scale="0" codePage="0"/&gt;&lt;referenceColumn name="product_photos_qty" dataType="DT_NUMERIC" length="0" precision="18" scale="0" codePage="0"/&gt;&lt;referenceColumn name="product_weight_g" dataType="DT_NUMERIC" length="0" precision="18" scale="0" codePage="0"/&gt;&lt;referenceColumn name="product_length_cm" dataType="DT_NUMERIC" length="0" precision="18" scale="0" codePage="0"/&gt;&lt;referenceColumn name="product_height_cm" dataType="DT_NUMERIC" length="0" precision="18" scale="0" codePage="0"/&gt;&lt;referenceColumn name="product_width_cm" dataType="DT_NUMERIC" length="0" precision="18" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_id]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - DWH Dimension Products\LKP - ProductId.Connections[OleDbConnection]"
+                  connectionManagerID="{CAD7FEE1-69E1-4519-8EBE-3BE25A51F66C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.Project_DWH]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - DWH Dimension Products\LKP - ProductId.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - DWH Dimension Products\LKP - ProductId.Inputs[Lookup Input].Columns[product_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="product_id"
+                      lineageId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_id]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">product_id</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - DWH Dimension Products\LKP - ProductId.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DFT - DWH Dimension Products\LKP - ProductId.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - DWH Dimension Products\LKP - ProductId.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DFT - DWH Dimension Products\LKP - ProductId.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - DWH Dimension Products\LKP - ProductId.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DFT - DWH Dimension Products\LKP - ProductId.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Products\LKP - ProductId.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - DWH Dimension Products\LKP - ProductId.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Products\LKP - ProductId.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - DWH Dimension Products\LKP - ProductId.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - DWH Dimension Products\OLE_DST - DWH DimProducts"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE_DST - DWH DimProducts"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimProducts]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - DWH Dimension Products\OLE_DST - DWH DimProducts.Connections[OleDbConnection]"
+                  connectionManagerID="{CAD7FEE1-69E1-4519-8EBE-3BE25A51F66C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.Project_DWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - DWH Dimension Products\OLE_DST - DWH DimProducts.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - DWH Dimension Products\OLE_DST - DWH DimProducts.Inputs[OLE DB Destination Input].Columns[product_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="product_id"
+                      externalMetadataColumnId="Package\DFT - DWH Dimension Products\OLE_DST - DWH DimProducts.Inputs[OLE DB Destination Input].ExternalColumns[product_id]"
+                      lineageId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_id]" />
+                    <inputColumn
+                      refId="Package\DFT - DWH Dimension Products\OLE_DST - DWH DimProducts.Inputs[OLE DB Destination Input].Columns[product_category_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="product_category_name"
+                      externalMetadataColumnId="Package\DFT - DWH Dimension Products\OLE_DST - DWH DimProducts.Inputs[OLE DB Destination Input].ExternalColumns[product_category_name]"
+                      lineageId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_category_name]" />
+                    <inputColumn
+                      refId="Package\DFT - DWH Dimension Products\OLE_DST - DWH DimProducts.Inputs[OLE DB Destination Input].Columns[product_description_lenght]"
+                      cachedDataType="numeric"
+                      cachedName="product_description_lenght"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\DFT - DWH Dimension Products\OLE_DST - DWH DimProducts.Inputs[OLE DB Destination Input].ExternalColumns[product_description_lenght]"
+                      lineageId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_description_lenght]" />
+                    <inputColumn
+                      refId="Package\DFT - DWH Dimension Products\OLE_DST - DWH DimProducts.Inputs[OLE DB Destination Input].Columns[product_photos_qty]"
+                      cachedDataType="numeric"
+                      cachedName="product_photos_qty"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\DFT - DWH Dimension Products\OLE_DST - DWH DimProducts.Inputs[OLE DB Destination Input].ExternalColumns[product_photos_qty]"
+                      lineageId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_photos_qty]" />
+                    <inputColumn
+                      refId="Package\DFT - DWH Dimension Products\OLE_DST - DWH DimProducts.Inputs[OLE DB Destination Input].Columns[product_weight_g]"
+                      cachedDataType="numeric"
+                      cachedName="product_weight_g"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\DFT - DWH Dimension Products\OLE_DST - DWH DimProducts.Inputs[OLE DB Destination Input].ExternalColumns[product_weight_g]"
+                      lineageId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_weight_g]" />
+                    <inputColumn
+                      refId="Package\DFT - DWH Dimension Products\OLE_DST - DWH DimProducts.Inputs[OLE DB Destination Input].Columns[product_length_cm]"
+                      cachedDataType="numeric"
+                      cachedName="product_length_cm"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\DFT - DWH Dimension Products\OLE_DST - DWH DimProducts.Inputs[OLE DB Destination Input].ExternalColumns[product_length_cm]"
+                      lineageId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_length_cm]" />
+                    <inputColumn
+                      refId="Package\DFT - DWH Dimension Products\OLE_DST - DWH DimProducts.Inputs[OLE DB Destination Input].Columns[product_height_cm]"
+                      cachedDataType="numeric"
+                      cachedName="product_height_cm"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\DFT - DWH Dimension Products\OLE_DST - DWH DimProducts.Inputs[OLE DB Destination Input].ExternalColumns[product_height_cm]"
+                      lineageId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_height_cm]" />
+                    <inputColumn
+                      refId="Package\DFT - DWH Dimension Products\OLE_DST - DWH DimProducts.Inputs[OLE DB Destination Input].Columns[product_width_cm]"
+                      cachedDataType="numeric"
+                      cachedName="product_width_cm"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\DFT - DWH Dimension Products\OLE_DST - DWH DimProducts.Inputs[OLE DB Destination Input].ExternalColumns[product_width_cm]"
+                      lineageId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_width_cm]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - DWH Dimension Products\OLE_DST - DWH DimProducts.Inputs[OLE DB Destination Input].ExternalColumns[productKey]"
+                      dataType="i4"
+                      name="productKey" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - DWH Dimension Products\OLE_DST - DWH DimProducts.Inputs[OLE DB Destination Input].ExternalColumns[product_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="product_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - DWH Dimension Products\OLE_DST - DWH DimProducts.Inputs[OLE DB Destination Input].ExternalColumns[product_category_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="product_category_name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - DWH Dimension Products\OLE_DST - DWH DimProducts.Inputs[OLE DB Destination Input].ExternalColumns[product_description_lenght]"
+                      dataType="numeric"
+                      name="product_description_lenght"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - DWH Dimension Products\OLE_DST - DWH DimProducts.Inputs[OLE DB Destination Input].ExternalColumns[product_photos_qty]"
+                      dataType="numeric"
+                      name="product_photos_qty"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - DWH Dimension Products\OLE_DST - DWH DimProducts.Inputs[OLE DB Destination Input].ExternalColumns[product_weight_g]"
+                      dataType="numeric"
+                      name="product_weight_g"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - DWH Dimension Products\OLE_DST - DWH DimProducts.Inputs[OLE DB Destination Input].ExternalColumns[product_length_cm]"
+                      dataType="numeric"
+                      name="product_length_cm"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - DWH Dimension Products\OLE_DST - DWH DimProducts.Inputs[OLE DB Destination Input].ExternalColumns[product_height_cm]"
+                      dataType="numeric"
+                      name="product_height_cm"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - DWH Dimension Products\OLE_DST - DWH DimProducts.Inputs[OLE DB Destination Input].ExternalColumns[product_width_cm]"
+                      dataType="numeric"
+                      name="product_width_cm"
+                      precision="18" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - DWH Dimension Products\OLE_DST - DWH DimProducts.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT - DWH Dimension Products\OLE_DST - DWH DimProducts.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Products\OLE_DST - DWH DimProducts.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - DWH Dimension Products\OLE_DST - DWH DimProducts.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Products\OLE_DST - DWH DimProducts.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - DWH Dimension Products\OLE_DST - DWH DimProducts.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE_SRC - ODS Products"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Products]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Connections[OleDbConnection]"
+                  connectionManagerID="{30B8B418-DA1B-4518-8520-11990357EF4C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.Project_ODS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].ExternalColumns[product_id]"
+                      length="50"
+                      lineageId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_id]"
+                      name="product_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_category_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].ExternalColumns[product_category_name]"
+                      length="50"
+                      lineageId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_category_name]"
+                      name="product_category_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_description_lenght]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].ExternalColumns[product_description_lenght]"
+                      lineageId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_description_lenght]"
+                      name="product_description_lenght"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_photos_qty]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].ExternalColumns[product_photos_qty]"
+                      lineageId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_photos_qty]"
+                      name="product_photos_qty"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_weight_g]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].ExternalColumns[product_weight_g]"
+                      lineageId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_weight_g]"
+                      name="product_weight_g"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_length_cm]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].ExternalColumns[product_length_cm]"
+                      lineageId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_length_cm]"
+                      name="product_length_cm"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_height_cm]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].ExternalColumns[product_height_cm]"
+                      lineageId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_height_cm]"
+                      name="product_height_cm"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_width_cm]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].ExternalColumns[product_width_cm]"
+                      lineageId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].Columns[product_width_cm]"
+                      name="product_width_cm"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].ExternalColumns[product_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="product_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].ExternalColumns[product_category_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="product_category_name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].ExternalColumns[product_description_lenght]"
+                      dataType="numeric"
+                      name="product_description_lenght"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].ExternalColumns[product_photos_qty]"
+                      dataType="numeric"
+                      name="product_photos_qty"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].ExternalColumns[product_weight_g]"
+                      dataType="numeric"
+                      name="product_weight_g"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].ExternalColumns[product_length_cm]"
+                      dataType="numeric"
+                      name="product_length_cm"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].ExternalColumns[product_height_cm]"
+                      dataType="numeric"
+                      name="product_height_cm"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output].ExternalColumns[product_width_cm]"
+                      dataType="numeric"
+                      name="product_width_cm"
+                      precision="18" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Error Output].Columns[product_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Error Output].Columns[product_id]"
+                      name="product_id" />
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Error Output].Columns[product_category_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Error Output].Columns[product_category_name]"
+                      name="product_category_name" />
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Error Output].Columns[product_description_lenght]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Error Output].Columns[product_description_lenght]"
+                      name="product_description_lenght"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Error Output].Columns[product_photos_qty]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Error Output].Columns[product_photos_qty]"
+                      name="product_photos_qty"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Error Output].Columns[product_weight_g]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Error Output].Columns[product_weight_g]"
+                      name="product_weight_g"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Error Output].Columns[product_length_cm]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Error Output].Columns[product_length_cm]"
+                      name="product_length_cm"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Error Output].Columns[product_height_cm]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Error Output].Columns[product_height_cm]"
+                      name="product_height_cm"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Error Output].Columns[product_width_cm]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Error Output].Columns[product_width_cm]"
+                      name="product_width_cm"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT - DWH Dimension Products.Paths[Lookup Match Output]"
+              endId="Package\DFT - DWH Dimension Products\LKP - Any Changes.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\DFT - DWH Dimension Products\LKP - ProductId.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DFT - DWH Dimension Products.Paths[Lookup No Match Output]"
+              endId="Package\DFT - DWH Dimension Products\OLE_DST - DWH DimProducts.Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\DFT - DWH Dimension Products\LKP - ProductId.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\DFT - DWH Dimension Products.Paths[Lookup No Match Output1]"
+              endId="Package\DFT - DWH Dimension Products\CMD - Update.Inputs[OLE DB Command Input]"
+              name="Lookup No Match Output"
+              startId="Package\DFT - DWH Dimension Products\LKP - Any Changes.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\DFT - DWH Dimension Products.Paths[OLE DB Source Output]"
+              endId="Package\DFT - DWH Dimension Products\LKP - ProductId.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="238,42"
+          Id="Package\DFT - DWH Dimension Products"
+          TopLeft="303,88" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT - DWH Dimension Products">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="149,42"
+          Id="Package\DFT - DWH Dimension Products\CMD - Update"
+          TopLeft="829,150" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\DFT - DWH Dimension Products\LKP - ProductId"
+          TopLeft="305,146" />
+        <NodeLayout
+          Size="231,42"
+          Id="Package\DFT - DWH Dimension Products\OLE_DST - DWH DimProducts"
+          TopLeft="268,247" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\DFT - DWH Dimension Products\LKP - Any Changes"
+          TopLeft="577,146" />
+        <NodeLayout
+          Size="210,42"
+          Id="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products"
+          TopLeft="280,59" />
+        <EdgeLayout
+          Id="Package\DFT - DWH Dimension Products.Paths[OLE DB Source Output]"
+          TopLeft="384,101">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45"
+              Start="0,0"
+              End="0,37.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - DWH Dimension Products.Paths[Lookup No Match Output1]"
+          TopLeft="752,169">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="77,0"
+              Start="0,0"
+              End="69.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="69.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-21.05638671875,5,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - DWH Dimension Products.Paths[Lookup No Match Output]"
+          TopLeft="383.25,188">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59"
+              Start="0,0"
+              End="0,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,19.9453125,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - DWH Dimension Products.Paths[Lookup Match Output]"
+          TopLeft="461,167">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="116,0"
+              Start="0,0"
+              End="108.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="108.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="6.05861328125,5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - DWH Dimension Products\OLE_DST - DWH DimProducts">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - DWH Dimension Products\OLE_SRC - ODS Products">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - DWH Dimension Products\LKP - ProductId">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimProducts]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - DWH Dimension Products\LKP - Any Changes">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimProducts]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

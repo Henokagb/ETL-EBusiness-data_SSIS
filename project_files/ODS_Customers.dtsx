@@ -1,0 +1,1710 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/11/2024 7:16:38 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-MDJ72NE"
+  DTS:CreatorName="DESKTOP-MDJ72NE\HP"
+  DTS:DTSID="{F2E306CD-D883-400A-8055-2652C050D9B6}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ODS_Customers"
+  DTS:PackageType="5"
+  DTS:VersionBuild="54"
+  DTS:VersionGUID="{FA626A3C-13BA-40D6-88E4-8C4CC4FFD162}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT - ODS Customer"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{FCD5E988-AE1C-43B3-B1B0-002D19C451F4}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT - ODS Customer"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT - ODS Customer\ALL - Customer longitude, latitude"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="ALL - Customer longitude, latitude"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Inputs[Union All Input 1].Columns[&quot;customer_id&quot;]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="&quot;customer_id&quot;"
+                      lineageId="Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Output].Columns[&quot;customer_id&quot;]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Outputs[Union All Output 1].Columns[customer_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Inputs[Union All Input 1].Columns[&quot;customer_zip_code_prefix&quot;]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="&quot;customer_zip_code_prefix&quot;"
+                      lineageId="Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Output].Columns[&quot;customer_zip_code_prefix&quot;]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Outputs[Union All Output 1].Columns[customer_zip_code_prefix]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Inputs[Union All Input 1].Columns[&quot;customer_city&quot;]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="&quot;customer_city&quot;"
+                      lineageId="Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Output].Columns[&quot;customer_city&quot;]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Outputs[Union All Output 1].Columns[customer_city]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Inputs[Union All Input 1].Columns[&quot;customer_state&quot;]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="&quot;customer_state&quot;"
+                      lineageId="Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Output].Columns[&quot;customer_state&quot;]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Outputs[Union All Output 1].Columns[customer_state]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Inputs[Union All Input 1].Columns[customer_zip_code_prefix_Numeric]"
+                      cachedDataType="numeric"
+                      cachedName="customer_zip_code_prefix_Numeric"
+                      cachedPrecision="18"
+                      lineageId="Package\DFT - ODS Customer\DCNV - Customer Zip code to numeric.Outputs[Data Conversion Output].Columns[customer_zip_code_prefix_Numeric]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Outputs[Union All Output 1].Columns[customer_zip_code_prefix_Numeric]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Inputs[Union All Input 1].Columns[geolocation_lng]"
+                      cachedDataType="numeric"
+                      cachedName="geolocation_lng"
+                      cachedPrecision="18"
+                      cachedScale="10"
+                      lineageId="Package\DFT - ODS Customer\LKP - Customer Zip code prefix.Outputs[Lookup Match Output].Columns[geolocation_lng]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Outputs[Union All Output 1].Columns[geolocation_lng]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Inputs[Union All Input 1].Columns[geolocation_lat]"
+                      cachedDataType="numeric"
+                      cachedName="geolocation_lat"
+                      cachedPrecision="18"
+                      cachedScale="10"
+                      lineageId="Package\DFT - ODS Customer\LKP - Customer Zip code prefix.Outputs[Lookup Match Output].Columns[geolocation_lat]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Outputs[Union All Output 1].Columns[geolocation_lat]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Inputs[Union All Input 2].Columns[&quot;customer_id&quot;]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="&quot;customer_id&quot;"
+                      lineageId="Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Output].Columns[&quot;customer_id&quot;]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Outputs[Union All Output 1].Columns[customer_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Inputs[Union All Input 2].Columns[&quot;customer_zip_code_prefix&quot;]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="&quot;customer_zip_code_prefix&quot;"
+                      lineageId="Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Output].Columns[&quot;customer_zip_code_prefix&quot;]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Outputs[Union All Output 1].Columns[customer_zip_code_prefix]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Inputs[Union All Input 2].Columns[&quot;customer_city&quot;]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="&quot;customer_city&quot;"
+                      lineageId="Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Output].Columns[&quot;customer_city&quot;]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Outputs[Union All Output 1].Columns[customer_city]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Inputs[Union All Input 2].Columns[&quot;customer_state&quot;]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="&quot;customer_state&quot;"
+                      lineageId="Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Output].Columns[&quot;customer_state&quot;]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Outputs[Union All Output 1].Columns[customer_state]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Inputs[Union All Input 2].Columns[customer_zip_code_prefix_Numeric]"
+                      cachedDataType="numeric"
+                      cachedName="customer_zip_code_prefix_Numeric"
+                      cachedPrecision="18"
+                      lineageId="Package\DFT - ODS Customer\DCNV - Customer Zip code to numeric.Outputs[Data Conversion Output].Columns[customer_zip_code_prefix_Numeric]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Outputs[Union All Output 1].Columns[customer_zip_code_prefix_Numeric]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Inputs[Union All Input 2].Columns[geolocation_lng]"
+                      cachedDataType="numeric"
+                      cachedName="geolocation_lng"
+                      cachedPrecision="18"
+                      cachedScale="10"
+                      lineageId="Package\DFT - ODS Customer\LKP - Customer State.Outputs[Lookup Match Output].Columns[geolocation_lng]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Outputs[Union All Output 1].Columns[geolocation_lng]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Inputs[Union All Input 2].Columns[geolocation_lat]"
+                      cachedDataType="numeric"
+                      cachedName="geolocation_lat"
+                      cachedPrecision="18"
+                      cachedScale="10"
+                      lineageId="Package\DFT - ODS Customer\LKP - Customer State.Outputs[Lookup Match Output].Columns[geolocation_lat]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Outputs[Union All Output 1].Columns[geolocation_lat]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Inputs[Union All Input 3]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Outputs[Union All Output 1].Columns[customer_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Outputs[Union All Output 1].Columns[customer_id]"
+                      name="customer_id" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Outputs[Union All Output 1].Columns[customer_zip_code_prefix]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Outputs[Union All Output 1].Columns[customer_zip_code_prefix]"
+                      name="customer_zip_code_prefix" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Outputs[Union All Output 1].Columns[customer_city]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Outputs[Union All Output 1].Columns[customer_city]"
+                      name="customer_city" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Outputs[Union All Output 1].Columns[customer_state]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Outputs[Union All Output 1].Columns[customer_state]"
+                      name="customer_state" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Outputs[Union All Output 1].Columns[customer_zip_code_prefix_Numeric]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Outputs[Union All Output 1].Columns[customer_zip_code_prefix_Numeric]"
+                      name="customer_zip_code_prefix_Numeric"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Outputs[Union All Output 1].Columns[geolocation_lng]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Outputs[Union All Output 1].Columns[geolocation_lng]"
+                      name="geolocation_lng"
+                      precision="18"
+                      scale="10" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Outputs[Union All Output 1].Columns[geolocation_lat]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Outputs[Union All Output 1].Columns[geolocation_lat]"
+                      name="geolocation_lat"
+                      precision="18"
+                      scale="10" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - ODS Customer\DCNV - Customer Zip code to numeric"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="DCNV - Customer Zip code to numeric"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT - ODS Customer\DCNV - Customer Zip code to numeric.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - ODS Customer\DCNV - Customer Zip code to numeric.Inputs[Data Conversion Input].Columns[&quot;customer_zip_code_prefix&quot;]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="&quot;customer_zip_code_prefix&quot;"
+                      lineageId="Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Output].Columns[&quot;customer_zip_code_prefix&quot;]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - ODS Customer\DCNV - Customer Zip code to numeric.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\DFT - ODS Customer\DCNV - Customer Zip code to numeric.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - ODS Customer\DCNV - Customer Zip code to numeric.Outputs[Data Conversion Output].Columns[customer_zip_code_prefix_Numeric]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - ODS Customer\DCNV - Customer Zip code to numeric.Outputs[Data Conversion Output].Columns[customer_zip_code_prefix_Numeric]"
+                      name="customer_zip_code_prefix_Numeric"
+                      precision="18"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Output].Columns["customer_zip_code_prefix"]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - ODS Customer\DCNV - Customer Zip code to numeric.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\DFT - ODS Customer\DCNV - Customer Zip code to numeric.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - ODS Customer\DCNV - Customer Zip code to numeric.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Customer\DCNV - Customer Zip code to numeric.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Customer\DCNV - Customer Zip code to numeric.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Customer\DCNV - Customer Zip code to numeric.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - ODS Customer\DER - Remove quotes from Column names"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DER - Remove quotes from Column names"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT - ODS Customer\DER - Remove quotes from Column names.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - ODS Customer\DER - Remove quotes from Column names.Inputs[Derived Column Input].Columns[customer_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="&quot;customer_id&quot;"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Output].Columns[&quot;customer_id&quot;]"
+                      name="customer_id"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Output].Columns["customer_id"]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">customer_id</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Customer\DER - Remove quotes from Column names.Inputs[Derived Column Input].Columns[customer_zip_code_prefix]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="&quot;customer_zip_code_prefix&quot;"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Output].Columns[&quot;customer_zip_code_prefix&quot;]"
+                      name="customer_zip_code_prefix"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Output].Columns["customer_zip_code_prefix"]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">customer_zip_code_prefix</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Customer\DER - Remove quotes from Column names.Inputs[Derived Column Input].Columns[customer_city]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="&quot;customer_city&quot;"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Output].Columns[&quot;customer_city&quot;]"
+                      name="customer_city"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Output].Columns["customer_city"]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">customer_city</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Customer\DER - Remove quotes from Column names.Inputs[Derived Column Input].Columns[customer_state]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="&quot;customer_state&quot;"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Output].Columns[&quot;customer_state&quot;]"
+                      name="customer_state"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Output].Columns["customer_state"]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">customer_state</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - ODS Customer\DER - Remove quotes from Column names.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT - ODS Customer\DER - Remove quotes from Column names.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - ODS Customer\DER - Remove quotes from Column names.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT - ODS Customer\DER - Remove quotes from Column names.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - ODS Customer\DER - Remove quotes from Column names.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Customer\DER - Remove quotes from Column names.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Customer\DER - Remove quotes from Column names.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Customer\DER - Remove quotes from Column names.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - ODS Customer\LKP - Customer State"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="LKP - Customer State"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Geolocation]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Geolocation]) [refTable]
+where [refTable].[geolocation_state] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="geolocation_zip_code" dataType="DT_NUMERIC" length="0" precision="18" scale="0" codePage="0"/&gt;&lt;referenceColumn name="geolocation_lng" dataType="DT_NUMERIC" length="0" precision="18" scale="10" codePage="0"/&gt;&lt;referenceColumn name="geolocation_lat" dataType="DT_NUMERIC" length="0" precision="18" scale="10" codePage="0"/&gt;&lt;referenceColumn name="geolocation_city" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="geolocation_state" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Output].Columns["customer_state"]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - ODS Customer\LKP - Customer State.Connections[OleDbConnection]"
+                  connectionManagerID="{30B8B418-DA1B-4518-8520-11990357EF4C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.Project_ODS]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - ODS Customer\LKP - Customer State.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - ODS Customer\LKP - Customer State.Inputs[Lookup Input].Columns[&quot;customer_state&quot;]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="&quot;customer_state&quot;"
+                      lineageId="Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Output].Columns[&quot;customer_state&quot;]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">geolocation_state</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - ODS Customer\LKP - Customer State.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DFT - ODS Customer\LKP - Customer State.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - ODS Customer\LKP - Customer State.Outputs[Lookup Match Output].Columns[geolocation_lng]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DFT - ODS Customer\LKP - Customer State.Outputs[Lookup Match Output].Columns[geolocation_lng]"
+                      name="geolocation_lng"
+                      precision="18"
+                      scale="10"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">geolocation_lng</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - ODS Customer\LKP - Customer State.Outputs[Lookup Match Output].Columns[geolocation_lat]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DFT - ODS Customer\LKP - Customer State.Outputs[Lookup Match Output].Columns[geolocation_lat]"
+                      name="geolocation_lat"
+                      precision="18"
+                      scale="10"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">geolocation_lat</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - ODS Customer\LKP - Customer State.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DFT - ODS Customer\LKP - Customer State.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - ODS Customer\LKP - Customer State.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DFT - ODS Customer\LKP - Customer State.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - ODS Customer\LKP - Customer State.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Customer\LKP - Customer State.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Customer\LKP - Customer State.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Customer\LKP - Customer State.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - ODS Customer\LKP - Customer Zip code prefix"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="LKP - Customer Zip code prefix"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Geolocation]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Geolocation]) [refTable]
+where [refTable].[geolocation_zip_code] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="geolocation_zip_code" dataType="DT_NUMERIC" length="0" precision="18" scale="0" codePage="0"/&gt;&lt;referenceColumn name="geolocation_lng" dataType="DT_NUMERIC" length="0" precision="18" scale="10" codePage="0"/&gt;&lt;referenceColumn name="geolocation_lat" dataType="DT_NUMERIC" length="0" precision="18" scale="10" codePage="0"/&gt;&lt;referenceColumn name="geolocation_city" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="geolocation_state" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DFT - ODS Customer\DCNV - Customer Zip code to numeric.Outputs[Data Conversion Output].Columns[customer_zip_code_prefix_Numeric]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - ODS Customer\LKP - Customer Zip code prefix.Connections[OleDbConnection]"
+                  connectionManagerID="{30B8B418-DA1B-4518-8520-11990357EF4C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.Project_ODS]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - ODS Customer\LKP - Customer Zip code prefix.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - ODS Customer\LKP - Customer Zip code prefix.Inputs[Lookup Input].Columns[customer_zip_code_prefix_Numeric]"
+                      cachedDataType="numeric"
+                      cachedName="customer_zip_code_prefix_Numeric"
+                      cachedPrecision="18"
+                      lineageId="Package\DFT - ODS Customer\DCNV - Customer Zip code to numeric.Outputs[Data Conversion Output].Columns[customer_zip_code_prefix_Numeric]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">geolocation_zip_code</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - ODS Customer\LKP - Customer Zip code prefix.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DFT - ODS Customer\LKP - Customer Zip code prefix.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - ODS Customer\LKP - Customer Zip code prefix.Outputs[Lookup Match Output].Columns[geolocation_lng]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DFT - ODS Customer\LKP - Customer Zip code prefix.Outputs[Lookup Match Output].Columns[geolocation_lng]"
+                      name="geolocation_lng"
+                      precision="18"
+                      scale="10"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">geolocation_lng</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - ODS Customer\LKP - Customer Zip code prefix.Outputs[Lookup Match Output].Columns[geolocation_lat]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DFT - ODS Customer\LKP - Customer Zip code prefix.Outputs[Lookup Match Output].Columns[geolocation_lat]"
+                      name="geolocation_lat"
+                      precision="18"
+                      scale="10"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">geolocation_lat</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - ODS Customer\LKP - Customer Zip code prefix.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DFT - ODS Customer\LKP - Customer Zip code prefix.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - ODS Customer\LKP - Customer Zip code prefix.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DFT - ODS Customer\LKP - Customer Zip code prefix.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - ODS Customer\LKP - Customer Zip code prefix.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Customer\LKP - Customer Zip code prefix.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Customer\LKP - Customer Zip code prefix.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Customer\LKP - Customer Zip code prefix.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - ODS Customer\OLE_DST - ODS Customers"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE_DST - ODS Customers"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Customers]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - ODS Customer\OLE_DST - ODS Customers.Connections[OleDbConnection]"
+                  connectionManagerID="{30B8B418-DA1B-4518-8520-11990357EF4C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.Project_ODS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - ODS Customer\OLE_DST - ODS Customers.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - ODS Customer\OLE_DST - ODS Customers.Inputs[OLE DB Destination Input].Columns[customer_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="customer_id"
+                      externalMetadataColumnId="Package\DFT - ODS Customer\OLE_DST - ODS Customers.Inputs[OLE DB Destination Input].ExternalColumns[customer_id]"
+                      lineageId="Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Outputs[Union All Output 1].Columns[customer_id]" />
+                    <inputColumn
+                      refId="Package\DFT - ODS Customer\OLE_DST - ODS Customers.Inputs[OLE DB Destination Input].Columns[customer_city]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="customer_city"
+                      externalMetadataColumnId="Package\DFT - ODS Customer\OLE_DST - ODS Customers.Inputs[OLE DB Destination Input].ExternalColumns[customer_city]"
+                      lineageId="Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Outputs[Union All Output 1].Columns[customer_city]" />
+                    <inputColumn
+                      refId="Package\DFT - ODS Customer\OLE_DST - ODS Customers.Inputs[OLE DB Destination Input].Columns[customer_state]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="customer_state"
+                      externalMetadataColumnId="Package\DFT - ODS Customer\OLE_DST - ODS Customers.Inputs[OLE DB Destination Input].ExternalColumns[customer_state]"
+                      lineageId="Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Outputs[Union All Output 1].Columns[customer_state]" />
+                    <inputColumn
+                      refId="Package\DFT - ODS Customer\OLE_DST - ODS Customers.Inputs[OLE DB Destination Input].Columns[geolocation_lng]"
+                      cachedDataType="numeric"
+                      cachedName="geolocation_lng"
+                      cachedPrecision="18"
+                      cachedScale="10"
+                      externalMetadataColumnId="Package\DFT - ODS Customer\OLE_DST - ODS Customers.Inputs[OLE DB Destination Input].ExternalColumns[geolocation_lng]"
+                      lineageId="Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Outputs[Union All Output 1].Columns[geolocation_lng]" />
+                    <inputColumn
+                      refId="Package\DFT - ODS Customer\OLE_DST - ODS Customers.Inputs[OLE DB Destination Input].Columns[geolocation_lat]"
+                      cachedDataType="numeric"
+                      cachedName="geolocation_lat"
+                      cachedPrecision="18"
+                      cachedScale="10"
+                      externalMetadataColumnId="Package\DFT - ODS Customer\OLE_DST - ODS Customers.Inputs[OLE DB Destination Input].ExternalColumns[geolocation_lat]"
+                      lineageId="Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Outputs[Union All Output 1].Columns[geolocation_lat]" />
+                    <inputColumn
+                      refId="Package\DFT - ODS Customer\OLE_DST - ODS Customers.Inputs[OLE DB Destination Input].Columns[customer_zip_code_prefix_Numeric]"
+                      cachedDataType="numeric"
+                      cachedName="customer_zip_code_prefix_Numeric"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\DFT - ODS Customer\OLE_DST - ODS Customers.Inputs[OLE DB Destination Input].ExternalColumns[customer_zip_code_prefix]"
+                      lineageId="Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Outputs[Union All Output 1].Columns[customer_zip_code_prefix_Numeric]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - ODS Customer\OLE_DST - ODS Customers.Inputs[OLE DB Destination Input].ExternalColumns[customer_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="customer_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - ODS Customer\OLE_DST - ODS Customers.Inputs[OLE DB Destination Input].ExternalColumns[customer_city]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="customer_city" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - ODS Customer\OLE_DST - ODS Customers.Inputs[OLE DB Destination Input].ExternalColumns[customer_state]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="customer_state" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - ODS Customer\OLE_DST - ODS Customers.Inputs[OLE DB Destination Input].ExternalColumns[customer_zip_code_prefix]"
+                      dataType="numeric"
+                      name="customer_zip_code_prefix"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - ODS Customer\OLE_DST - ODS Customers.Inputs[OLE DB Destination Input].ExternalColumns[geolocation_lng]"
+                      dataType="numeric"
+                      name="geolocation_lng"
+                      precision="18"
+                      scale="10" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - ODS Customer\OLE_DST - ODS Customers.Inputs[OLE DB Destination Input].ExternalColumns[geolocation_lat]"
+                      dataType="numeric"
+                      name="geolocation_lat"
+                      precision="18"
+                      scale="10" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - ODS Customer\OLE_DST - ODS Customers.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT - ODS Customer\OLE_DST - ODS Customers.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - ODS Customer\OLE_DST - ODS Customers.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Customer\OLE_DST - ODS Customers.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Customer\OLE_DST - ODS Customers.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Customer\OLE_DST - ODS Customers.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - ODS Customer\OLE_SRC - STA Customers"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE_SRC - STA Customers"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Customers]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - ODS Customer\OLE_SRC - STA Customers.Connections[OleDbConnection]"
+                  connectionManagerID="{E3094E46-AA67-4561-B78B-5EC884184F3F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.Project_STA]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Output].Columns[&quot;customer_id&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Output].ExternalColumns[&quot;customer_id&quot;]"
+                      length="50"
+                      lineageId="Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Output].Columns[&quot;customer_id&quot;]"
+                      name="&quot;customer_id&quot;"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Output].Columns[&quot;customer_zip_code_prefix&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Output].ExternalColumns[&quot;customer_zip_code_prefix&quot;]"
+                      length="50"
+                      lineageId="Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Output].Columns[&quot;customer_zip_code_prefix&quot;]"
+                      name="&quot;customer_zip_code_prefix&quot;"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Output].Columns[&quot;customer_city&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Output].ExternalColumns[&quot;customer_city&quot;]"
+                      length="50"
+                      lineageId="Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Output].Columns[&quot;customer_city&quot;]"
+                      name="&quot;customer_city&quot;"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Output].Columns[&quot;customer_state&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Output].ExternalColumns[&quot;customer_state&quot;]"
+                      length="50"
+                      lineageId="Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Output].Columns[&quot;customer_state&quot;]"
+                      name="&quot;customer_state&quot;"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Output].ExternalColumns[&quot;customer_id&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="&quot;customer_id&quot;" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Output].ExternalColumns[&quot;customer_unique_id&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="&quot;customer_unique_id&quot;" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Output].ExternalColumns[&quot;customer_zip_code_prefix&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="&quot;customer_zip_code_prefix&quot;" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Output].ExternalColumns[&quot;customer_city&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="&quot;customer_city&quot;" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Output].ExternalColumns[&quot;customer_state&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="&quot;customer_state&quot;" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Error Output].Columns[&quot;customer_id&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Error Output].Columns[&quot;customer_id&quot;]"
+                      name="&quot;customer_id&quot;" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Error Output].Columns[&quot;customer_zip_code_prefix&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Error Output].Columns[&quot;customer_zip_code_prefix&quot;]"
+                      name="&quot;customer_zip_code_prefix&quot;" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Error Output].Columns[&quot;customer_city&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Error Output].Columns[&quot;customer_city&quot;]"
+                      name="&quot;customer_city&quot;" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Error Output].Columns[&quot;customer_state&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Error Output].Columns[&quot;customer_state&quot;]"
+                      name="&quot;customer_state&quot;" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT - ODS Customer.Paths[Data Conversion Output]"
+              endId="Package\DFT - ODS Customer\LKP - Customer Zip code prefix.Inputs[Lookup Input]"
+              name="Data Conversion Output"
+              startId="Package\DFT - ODS Customer\DCNV - Customer Zip code to numeric.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\DFT - ODS Customer.Paths[Derived Column Output]"
+              endId="Package\DFT - ODS Customer\DCNV - Customer Zip code to numeric.Inputs[Data Conversion Input]"
+              name="Derived Column Output"
+              startId="Package\DFT - ODS Customer\DER - Remove quotes from Column names.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT - ODS Customer.Paths[Lookup Match Output]"
+              endId="Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Inputs[Union All Input 1]"
+              name="Lookup Match Output"
+              startId="Package\DFT - ODS Customer\LKP - Customer Zip code prefix.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DFT - ODS Customer.Paths[Lookup Match Output1]"
+              endId="Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Inputs[Union All Input 2]"
+              name="Lookup Match Output"
+              startId="Package\DFT - ODS Customer\LKP - Customer State.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DFT - ODS Customer.Paths[Lookup No Match Output]"
+              endId="Package\DFT - ODS Customer\LKP - Customer State.Inputs[Lookup Input]"
+              name="Lookup No Match Output"
+              startId="Package\DFT - ODS Customer\LKP - Customer Zip code prefix.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\DFT - ODS Customer.Paths[OLE DB Source Output]"
+              endId="Package\DFT - ODS Customer\DER - Remove quotes from Column names.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT - ODS Customer\OLE_SRC - STA Customers.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\DFT - ODS Customer.Paths[Union All Output 1]"
+              endId="Package\DFT - ODS Customer\OLE_DST - ODS Customers.Inputs[OLE DB Destination Input]"
+              name="Union All Output 1"
+              startId="Package\DFT - ODS Customer\ALL - Customer longitude, latitude.Outputs[Union All Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL - TRUNCATE ODS Customers"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{5F5F132F-B985-4168-9D2D-688C9B0F17E0}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL - TRUNCATE ODS Customers"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{30B8B418-DA1B-4518-8520-11990357EF4C}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.Customers" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{9AF30716-0CE3-41E5-AC89-8CECAA71E248}"
+      DTS:From="Package\SQL - TRUNCATE ODS Customers"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DFT - ODS Customer" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="184,42"
+          Id="Package\DFT - ODS Customer"
+          TopLeft="354,150" />
+        <NodeLayout
+          Size="253,42"
+          Id="Package\SQL - TRUNCATE ODS Customers"
+          TopLeft="316,69" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="444.25,111">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39"
+              Start="0,0"
+              End="0,31.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT - ODS Customer">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="217,42"
+          Id="Package\DFT - ODS Customer\OLE_SRC - STA Customers"
+          TopLeft="297,40" />
+        <NodeLayout
+          Size="232,42"
+          Id="Package\DFT - ODS Customer\LKP - Customer Zip code prefix"
+          TopLeft="127,313" />
+        <NodeLayout
+          Size="267,42"
+          Id="Package\DFT - ODS Customer\DCNV - Customer Zip code to numeric"
+          TopLeft="264,184" />
+        <NodeLayout
+          Size="219,42"
+          Id="Package\DFT - ODS Customer\OLE_DST - ODS Customers"
+          TopLeft="294,507" />
+        <NodeLayout
+          Size="245,42"
+          Id="Package\DFT - ODS Customer\ALL - Customer longitude, latitude"
+          TopLeft="306,424" />
+        <NodeLayout
+          Size="290,42"
+          Id="Package\DFT - ODS Customer\DER - Remove quotes from Column names"
+          TopLeft="254,112" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\DFT - ODS Customer\LKP - Customer State"
+          TopLeft="523,313" />
+        <EdgeLayout
+          Id="Package\DFT - ODS Customer.Paths[OLE DB Source Output]"
+          TopLeft="402.25,82">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30"
+              Start="0,0"
+              End="0,22.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - ODS Customer.Paths[Lookup No Match Output]"
+          TopLeft="359,334">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="164,0"
+              Start="0,0"
+              End="156.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="156.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="22.44361328125,5,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - ODS Customer.Paths[Lookup Match Output1]"
+          TopLeft="616,355">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-148,69"
+              Start="0,0"
+              End="-148,61.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.1313868613139" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37.1313868613139"
+                    Point2="0,41.1313868613139"
+                    Point3="-4,41.1313868613139" />
+                  <mssgle:LineSegment
+                    End="-144,41.1313868613139" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-144,41.1313868613139"
+                    Point2="-148,41.1313868613139"
+                    Point3="-148,45.1313868613139" />
+                  <mssgle:LineSegment
+                    End="-148,61.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-122.19138671875,46.1313868613139,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - ODS Customer.Paths[Lookup Match Output]"
+          TopLeft="243,355">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="146,69"
+              Start="0,0"
+              End="146,61.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.1313868613139" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37.1313868613139"
+                    Point2="0,41.1313868613139"
+                    Point3="4,41.1313868613139" />
+                  <mssgle:LineSegment
+                    End="142,41.1313868613139" />
+                  <mssgle:CubicBezierSegment
+                    Point1="142,41.1313868613139"
+                    Point2="146,41.1313868613139"
+                    Point3="146,45.1313868613139" />
+                  <mssgle:LineSegment
+                    End="146,61.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="24.80861328125,46.1313868613139,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - ODS Customer.Paths[Derived Column Output]"
+          TopLeft="398.25,154">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30"
+              Start="0,0"
+              End="0,22.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - ODS Customer.Paths[Data Conversion Output]"
+          TopLeft="397.5,226">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-154.5,87"
+              Start="0,0"
+              End="-154.5,79.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,39.5"
+                    Point2="0,43.5"
+                    Point3="-4,43.5" />
+                  <mssgle:LineSegment
+                    End="-150.5,43.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-150.5,43.5"
+                    Point2="-154.5,43.5"
+                    Point3="-154.5,47.5" />
+                  <mssgle:LineSegment
+                    End="-154.5,79.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - ODS Customer.Paths[Union All Output 1]"
+          TopLeft="428.5,466">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-25,41"
+              Start="0,0"
+              End="-25,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.5"
+                    Point2="0,20.5"
+                    Point3="-4,20.5" />
+                  <mssgle:LineSegment
+                    End="-21,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-21,20.5"
+                    Point2="-25,20.5"
+                    Point3="-25,24.5" />
+                  <mssgle:LineSegment
+                    End="-25,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - ODS Customer\LKP - Customer Zip code prefix">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Geolocation]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - ODS Customer\OLE_DST - ODS Customers">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - ODS Customer\LKP - Customer State">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Geolocation]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
