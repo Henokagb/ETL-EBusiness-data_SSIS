@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="DWH_FactOrder_items"
   DTS:PackageType="5"
-  DTS:VersionBuild="22"
-  DTS:VersionGUID="{8B5EE5E6-B045-487A-A0F4-380B549CE895}">
+  DTS:VersionBuild="24"
+  DTS:VersionGUID="{BE3FC25F-11A0-419E-AA4E-FB1C19F928F6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -995,6 +995,360 @@
               </outputs>
             </component>
             <component
+              refId="Package\DFT - DWH FactOrder_items\ALL - Sellers"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="ALL - Sellers"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Inputs[Union All Input 2].Columns[order_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="order_id"
+                      lineageId="Package\DFT - DWH FactOrder_items\ALL - Products.Outputs[Union All Output 1].Columns[order_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - DWH FactOrder_items\ALL - Sellers.Outputs[Union All Output 1].Columns[order_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Inputs[Union All Input 2].Columns[order_item_id]"
+                      cachedDataType="numeric"
+                      cachedName="order_item_id"
+                      cachedPrecision="18"
+                      lineageId="Package\DFT - DWH FactOrder_items\ALL - Products.Outputs[Union All Output 1].Columns[order_item_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - DWH FactOrder_items\ALL - Sellers.Outputs[Union All Output 1].Columns[order_item_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Inputs[Union All Input 2].Columns[product_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="product_id"
+                      lineageId="Package\DFT - DWH FactOrder_items\ALL - Products.Outputs[Union All Output 1].Columns[product_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - DWH FactOrder_items\ALL - Sellers.Outputs[Union All Output 1].Columns[product_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Inputs[Union All Input 2].Columns[seller_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="seller_id"
+                      lineageId="Package\DFT - DWH FactOrder_items\ALL - Products.Outputs[Union All Output 1].Columns[seller_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - DWH FactOrder_items\ALL - Sellers.Outputs[Union All Output 1].Columns[seller_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Inputs[Union All Input 2].Columns[shipping_limit_date]"
+                      cachedDataType="dbDate"
+                      cachedName="shipping_limit_date"
+                      lineageId="Package\DFT - DWH FactOrder_items\ALL - Products.Outputs[Union All Output 1].Columns[shipping_limit_date]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - DWH FactOrder_items\ALL - Sellers.Outputs[Union All Output 1].Columns[shipping_limit_date]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Inputs[Union All Input 2].Columns[price]"
+                      cachedDataType="numeric"
+                      cachedName="price"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      lineageId="Package\DFT - DWH FactOrder_items\ALL - Products.Outputs[Union All Output 1].Columns[price]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - DWH FactOrder_items\ALL - Sellers.Outputs[Union All Output 1].Columns[price]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Inputs[Union All Input 2].Columns[Freight_value]"
+                      cachedDataType="numeric"
+                      cachedName="Freight_value"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      lineageId="Package\DFT - DWH FactOrder_items\ALL - Products.Outputs[Union All Output 1].Columns[Freight_value]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - DWH FactOrder_items\ALL - Sellers.Outputs[Union All Output 1].Columns[Freight_value]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Inputs[Union All Input 2].Columns[productKey]"
+                      cachedDataType="i4"
+                      cachedName="productKey"
+                      lineageId="Package\DFT - DWH FactOrder_items\ALL - Products.Outputs[Union All Output 1].Columns[productKey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - DWH FactOrder_items\ALL - Sellers.Outputs[Union All Output 1].Columns[productKey]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Inputs[Union All Input 2].Columns[sellerKey]"
+                      cachedDataType="i4"
+                      cachedName="sellerKey"
+                      lineageId="Package\DFT - DWH FactOrder_items\DER - SellerKey -1.Outputs[Derived Column Output].Columns[sellerKey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - DWH FactOrder_items\ALL - Sellers.Outputs[Union All Output 1].Columns[sellerKey]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Inputs[Union All Input 3]"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Inputs[Union All Input 3].Columns[order_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="order_id"
+                      lineageId="Package\DFT - DWH FactOrder_items\ALL - Products.Outputs[Union All Output 1].Columns[order_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - DWH FactOrder_items\ALL - Sellers.Outputs[Union All Output 1].Columns[order_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Inputs[Union All Input 3].Columns[order_item_id]"
+                      cachedDataType="numeric"
+                      cachedName="order_item_id"
+                      cachedPrecision="18"
+                      lineageId="Package\DFT - DWH FactOrder_items\ALL - Products.Outputs[Union All Output 1].Columns[order_item_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - DWH FactOrder_items\ALL - Sellers.Outputs[Union All Output 1].Columns[order_item_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Inputs[Union All Input 3].Columns[product_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="product_id"
+                      lineageId="Package\DFT - DWH FactOrder_items\ALL - Products.Outputs[Union All Output 1].Columns[product_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - DWH FactOrder_items\ALL - Sellers.Outputs[Union All Output 1].Columns[product_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Inputs[Union All Input 3].Columns[seller_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="seller_id"
+                      lineageId="Package\DFT - DWH FactOrder_items\ALL - Products.Outputs[Union All Output 1].Columns[seller_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - DWH FactOrder_items\ALL - Sellers.Outputs[Union All Output 1].Columns[seller_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Inputs[Union All Input 3].Columns[shipping_limit_date]"
+                      cachedDataType="dbDate"
+                      cachedName="shipping_limit_date"
+                      lineageId="Package\DFT - DWH FactOrder_items\ALL - Products.Outputs[Union All Output 1].Columns[shipping_limit_date]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - DWH FactOrder_items\ALL - Sellers.Outputs[Union All Output 1].Columns[shipping_limit_date]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Inputs[Union All Input 3].Columns[price]"
+                      cachedDataType="numeric"
+                      cachedName="price"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      lineageId="Package\DFT - DWH FactOrder_items\ALL - Products.Outputs[Union All Output 1].Columns[price]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - DWH FactOrder_items\ALL - Sellers.Outputs[Union All Output 1].Columns[price]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Inputs[Union All Input 3].Columns[Freight_value]"
+                      cachedDataType="numeric"
+                      cachedName="Freight_value"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      lineageId="Package\DFT - DWH FactOrder_items\ALL - Products.Outputs[Union All Output 1].Columns[Freight_value]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - DWH FactOrder_items\ALL - Sellers.Outputs[Union All Output 1].Columns[Freight_value]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Inputs[Union All Input 3].Columns[productKey]"
+                      cachedDataType="i4"
+                      cachedName="productKey"
+                      lineageId="Package\DFT - DWH FactOrder_items\ALL - Products.Outputs[Union All Output 1].Columns[productKey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - DWH FactOrder_items\ALL - Sellers.Outputs[Union All Output 1].Columns[productKey]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Inputs[Union All Input 3].Columns[sellerKey]"
+                      cachedDataType="i4"
+                      cachedName="sellerKey"
+                      lineageId="Package\DFT - DWH FactOrder_items\LKP - DimSellers.Outputs[Lookup Match Output].Columns[sellerKey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - DWH FactOrder_items\ALL - Sellers.Outputs[Union All Output 1].Columns[sellerKey]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Inputs[Union All Input 1]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Outputs[Union All Output 1].Columns[order_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Outputs[Union All Output 1].Columns[order_id]"
+                      name="order_id" />
+                    <outputColumn
+                      refId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Outputs[Union All Output 1].Columns[order_item_id]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Outputs[Union All Output 1].Columns[order_item_id]"
+                      name="order_item_id"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Outputs[Union All Output 1].Columns[product_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Outputs[Union All Output 1].Columns[product_id]"
+                      name="product_id" />
+                    <outputColumn
+                      refId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Outputs[Union All Output 1].Columns[seller_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Outputs[Union All Output 1].Columns[seller_id]"
+                      name="seller_id" />
+                    <outputColumn
+                      refId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Outputs[Union All Output 1].Columns[shipping_limit_date]"
+                      dataType="dbDate"
+                      lineageId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Outputs[Union All Output 1].Columns[shipping_limit_date]"
+                      name="shipping_limit_date" />
+                    <outputColumn
+                      refId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Outputs[Union All Output 1].Columns[price]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Outputs[Union All Output 1].Columns[price]"
+                      name="price"
+                      precision="18"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Outputs[Union All Output 1].Columns[Freight_value]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Outputs[Union All Output 1].Columns[Freight_value]"
+                      name="Freight_value"
+                      precision="18"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Outputs[Union All Output 1].Columns[productKey]"
+                      dataType="i4"
+                      lineageId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Outputs[Union All Output 1].Columns[productKey]"
+                      name="productKey" />
+                    <outputColumn
+                      refId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Outputs[Union All Output 1].Columns[sellerKey]"
+                      dataType="i4"
+                      lineageId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Outputs[Union All Output 1].Columns[sellerKey]"
+                      name="sellerKey" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\DFT - DWH FactOrder_items\DER - Functional Reject Products"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
@@ -1362,6 +1716,79 @@
                       refId="Package\DFT - DWH FactOrder_items\DER - ProductKey -1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\DFT - DWH FactOrder_items\DER - ProductKey -1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - DWH FactOrder_items\DER - SellerKey -1"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DER - SellerKey -1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT - DWH FactOrder_items\DER - SellerKey -1.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - DWH FactOrder_items\DER - SellerKey -1.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT - DWH FactOrder_items\DER - SellerKey -1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - DWH FactOrder_items\DER - SellerKey -1.Outputs[Derived Column Output].Columns[sellerKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - DWH FactOrder_items\DER - SellerKey -1.Outputs[Derived Column Output].Columns[sellerKey]"
+                      name="sellerKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">-1</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">-1</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - DWH FactOrder_items\DER - SellerKey -1.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT - DWH FactOrder_items\DER - SellerKey -1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - DWH FactOrder_items\DER - SellerKey -1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - DWH FactOrder_items\DER - SellerKey -1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - DWH FactOrder_items\DER - SellerKey -1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - DWH FactOrder_items\DER - SellerKey -1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1744,7 +2171,7 @@ where [refTable].[Date] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\DFT - DWH FactOrder_items\ALL - Products.Outputs[Union All Output 1].Columns[shipping_limit_date]};</property>
+                  name="ParameterMap">#{Package\DFT - DWH FactOrder_items\ALL - Sellers.Outputs[Union All Output 1].Columns[shipping_limit_date]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1771,7 +2198,7 @@ where [refTable].[Date] = ?</property>
                       refId="Package\DFT - DWH FactOrder_items\LKP - Shipping_limit_date.Inputs[Lookup Input].Columns[shipping_limit_date]"
                       cachedDataType="dbDate"
                       cachedName="shipping_limit_date"
-                      lineageId="Package\DFT - DWH FactOrder_items\ALL - Products.Outputs[Union All Output 1].Columns[shipping_limit_date]">
+                      lineageId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Outputs[Union All Output 1].Columns[shipping_limit_date]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -1905,9 +2332,16 @@ where [refTable].[Date] = ?</property>
                 </output>
                 <output
                   refId="Package\DFT - DWH FactOrder_items\MLT - Seller_id.Outputs[Multicast Output 2]"
-                  dangling="true"
                   deleteOutputOnPathDetached="true"
                   name="Multicast Output 2"
+                  synchronousInputId="Package\DFT - DWH FactOrder_items\MLT - Seller_id.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - DWH FactOrder_items\MLT - Seller_id.Outputs[Multicast Output 3]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 3"
                   synchronousInputId="Package\DFT - DWH FactOrder_items\MLT - Seller_id.Inputs[Multicast Input 1]">
                   <externalMetadataColumns />
                 </output>
@@ -2151,14 +2585,14 @@ where [refTable].[Date] = ?</property>
                       cachedLength="50"
                       cachedName="order_id"
                       externalMetadataColumnId="Package\DFT - DWH FactOrder_items\OLE_DST - DWH Fact Order Items.Inputs[OLE DB Destination Input].ExternalColumns[order_id]"
-                      lineageId="Package\DFT - DWH FactOrder_items\ALL - Products.Outputs[Union All Output 1].Columns[order_id]" />
+                      lineageId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Outputs[Union All Output 1].Columns[order_id]" />
                     <inputColumn
                       refId="Package\DFT - DWH FactOrder_items\OLE_DST - DWH Fact Order Items.Inputs[OLE DB Destination Input].Columns[order_item_id]"
                       cachedDataType="numeric"
                       cachedName="order_item_id"
                       cachedPrecision="18"
                       externalMetadataColumnId="Package\DFT - DWH FactOrder_items\OLE_DST - DWH Fact Order Items.Inputs[OLE DB Destination Input].ExternalColumns[order_item_id]"
-                      lineageId="Package\DFT - DWH FactOrder_items\ALL - Products.Outputs[Union All Output 1].Columns[order_item_id]" />
+                      lineageId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Outputs[Union All Output 1].Columns[order_item_id]" />
                     <inputColumn
                       refId="Package\DFT - DWH FactOrder_items\OLE_DST - DWH Fact Order Items.Inputs[OLE DB Destination Input].Columns[price]"
                       cachedDataType="numeric"
@@ -2166,19 +2600,19 @@ where [refTable].[Date] = ?</property>
                       cachedPrecision="18"
                       cachedScale="2"
                       externalMetadataColumnId="Package\DFT - DWH FactOrder_items\OLE_DST - DWH Fact Order Items.Inputs[OLE DB Destination Input].ExternalColumns[price]"
-                      lineageId="Package\DFT - DWH FactOrder_items\ALL - Products.Outputs[Union All Output 1].Columns[price]" />
+                      lineageId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Outputs[Union All Output 1].Columns[price]" />
                     <inputColumn
                       refId="Package\DFT - DWH FactOrder_items\OLE_DST - DWH Fact Order Items.Inputs[OLE DB Destination Input].Columns[productKey]"
                       cachedDataType="i4"
                       cachedName="productKey"
                       externalMetadataColumnId="Package\DFT - DWH FactOrder_items\OLE_DST - DWH Fact Order Items.Inputs[OLE DB Destination Input].ExternalColumns[productKey]"
-                      lineageId="Package\DFT - DWH FactOrder_items\ALL - Products.Outputs[Union All Output 1].Columns[productKey]" />
+                      lineageId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Outputs[Union All Output 1].Columns[productKey]" />
                     <inputColumn
                       refId="Package\DFT - DWH FactOrder_items\OLE_DST - DWH Fact Order Items.Inputs[OLE DB Destination Input].Columns[sellerKey]"
                       cachedDataType="i4"
                       cachedName="sellerKey"
                       externalMetadataColumnId="Package\DFT - DWH FactOrder_items\OLE_DST - DWH Fact Order Items.Inputs[OLE DB Destination Input].ExternalColumns[sellerKey]"
-                      lineageId="Package\DFT - DWH FactOrder_items\LKP - DimSellers.Outputs[Lookup Match Output].Columns[sellerKey]" />
+                      lineageId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Outputs[Union All Output 1].Columns[sellerKey]" />
                     <inputColumn
                       refId="Package\DFT - DWH FactOrder_items\OLE_DST - DWH Fact Order Items.Inputs[OLE DB Destination Input].Columns[DateKey]"
                       cachedDataType="i4"
@@ -2192,7 +2626,7 @@ where [refTable].[Date] = ?</property>
                       cachedPrecision="18"
                       cachedScale="2"
                       externalMetadataColumnId="Package\DFT - DWH FactOrder_items\OLE_DST - DWH Fact Order Items.Inputs[OLE DB Destination Input].ExternalColumns[freight_value]"
-                      lineageId="Package\DFT - DWH FactOrder_items\ALL - Products.Outputs[Union All Output 1].Columns[Freight_value]" />
+                      lineageId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Outputs[Union All Output 1].Columns[Freight_value]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -2529,13 +2963,13 @@ where [refTable].[Date] = ?</property>
               name="Derived Column Output"
               startId="Package\DFT - DWH FactOrder_items\DER - Functional Reject Sellers.Outputs[Derived Column Output]" />
             <path
-              refId="Package\DFT - DWH FactOrder_items.Paths[Lookup Match Output]"
-              endId="Package\DFT - DWH FactOrder_items\ALL - Products.Inputs[Union All Input 1]"
-              name="Lookup Match Output"
-              startId="Package\DFT - DWH FactOrder_items\LKP - DimProducts.Outputs[Lookup Match Output]" />
+              refId="Package\DFT - DWH FactOrder_items.Paths[Derived Column Output3]"
+              endId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Inputs[Union All Input 2]"
+              name="Derived Column Output"
+              startId="Package\DFT - DWH FactOrder_items\DER - SellerKey -1.Outputs[Derived Column Output]" />
             <path
               refId="Package\DFT - DWH FactOrder_items.Paths[Lookup Match Output1]"
-              endId="Package\DFT - DWH FactOrder_items\LKP - Shipping_limit_date.Inputs[Lookup Input]"
+              endId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Inputs[Union All Input 3]"
               name="Lookup Match Output"
               startId="Package\DFT - DWH FactOrder_items\LKP - DimSellers.Outputs[Lookup Match Output]" />
             <path
@@ -2543,6 +2977,11 @@ where [refTable].[Date] = ?</property>
               endId="Package\DFT - DWH FactOrder_items\OLE_DST - DWH Fact Order Items.Inputs[OLE DB Destination Input]"
               name="Lookup Match Output"
               startId="Package\DFT - DWH FactOrder_items\LKP - Shipping_limit_date.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DFT - DWH FactOrder_items.Paths[Lookup Match Output]"
+              endId="Package\DFT - DWH FactOrder_items\ALL - Products.Inputs[Union All Input 1]"
+              name="Lookup Match Output"
+              startId="Package\DFT - DWH FactOrder_items\LKP - DimProducts.Outputs[Lookup Match Output]" />
             <path
               refId="Package\DFT - DWH FactOrder_items.Paths[Lookup No Match Output]"
               endId="Package\DFT - DWH FactOrder_items\MLT - Product_id.Inputs[Multicast Input 1]"
@@ -2569,10 +3008,20 @@ where [refTable].[Date] = ?</property>
               name="Multicast Output 2"
               startId="Package\DFT - DWH FactOrder_items\MLT - Product_id.Outputs[Multicast Output 2]" />
             <path
+              refId="Package\DFT - DWH FactOrder_items.Paths[Multicast Output 21]"
+              endId="Package\DFT - DWH FactOrder_items\DER - SellerKey -1.Inputs[Derived Column Input]"
+              name="Multicast Output 2"
+              startId="Package\DFT - DWH FactOrder_items\MLT - Seller_id.Outputs[Multicast Output 2]" />
+            <path
               refId="Package\DFT - DWH FactOrder_items.Paths[OLE DB Source Output]"
               endId="Package\DFT - DWH FactOrder_items\LKP - DimProducts.Inputs[Lookup Input]"
               name="OLE DB Source Output"
               startId="Package\DFT - DWH FactOrder_items\OLE_SRC - ODS Order_items.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\DFT - DWH FactOrder_items.Paths[Union All Output 12]"
+              endId="Package\DFT - DWH FactOrder_items\LKP - Shipping_limit_date.Inputs[Lookup Input]"
+              name="Union All Output 1"
+              startId="Package\DFT - DWH FactOrder_items\ALL - Sellers.Outputs[Union All Output 1]" />
             <path
               refId="Package\DFT - DWH FactOrder_items.Paths[Union All Output 1]"
               endId="Package\DFT - DWH FactOrder_items\LKP - DimSellers.Inputs[Lookup Input]"
@@ -2611,7 +3060,7 @@ where [refTable].[Date] = ?</property>
     design-time-name="Package\DFT - DWH FactOrder_items">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="166,42"
           Id="Package\DFT - DWH FactOrder_items\DER - ProductKey -1"
@@ -2632,10 +3081,6 @@ where [refTable].[Date] = ?</property>
           Size="151,42"
           Id="Package\DFT - DWH FactOrder_items\ALL - Products"
           TopLeft="274,229" />
-        <NodeLayout
-          Size="206,42"
-          Id="Package\DFT - DWH FactOrder_items\LKP - Shipping_limit_date"
-          TopLeft="253,407" />
         <NodeLayout
           Size="129,42"
           Id="Package\DFT - DWH FactOrder_items\OLE_DST"
@@ -2667,7 +3112,7 @@ where [refTable].[Date] = ?</property>
         <NodeLayout
           Size="250,42"
           Id="Package\DFT - DWH FactOrder_items\OLE_DST - DWH Fact Order Items"
-          TopLeft="227,503" />
+          TopLeft="259,575" />
         <EdgeLayout
           Id="Package\DFT - DWH FactOrder_items.Paths[Union All Output 11]"
           TopLeft="1152,247">
@@ -2849,54 +3294,6 @@ where [refTable].[Date] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DFT - DWH FactOrder_items.Paths[Lookup Match Output2]"
-          TopLeft="354,449">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,54"
-              Start="0,0"
-              End="0,46.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,46.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,17.4453125,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT - DWH FactOrder_items.Paths[Lookup Match Output1]"
-          TopLeft="353.25,354">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,53"
-              Start="0,0"
-              End="0,45.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,45.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,16.9453125,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\DFT - DWH FactOrder_items.Paths[Lookup Match Output]"
           TopLeft="350.25,176">
           <EdgeLayout.Curve>
@@ -3032,6 +3429,168 @@ where [refTable].[Date] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="172,42"
+          Id="Package\DFT - DWH FactOrder_items\DER - SellerKey -1"
+          TopLeft="514,414" />
+        <EdgeLayout
+          Id="Package\DFT - DWH FactOrder_items.Paths[Multicast Output 21]"
+          TopLeft="586.5,355">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="13.5,59"
+              Start="0,0"
+              End="13.5,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.5"
+                    Point2="0,29.5"
+                    Point3="4,29.5" />
+                  <mssgle:LineSegment
+                    End="9.5,29.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9.5,29.5"
+                    Point2="13.5,29.5"
+                    Point3="13.5,33.5" />
+                  <mssgle:LineSegment
+                    End="13.5,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="142,42"
+          Id="Package\DFT - DWH FactOrder_items\ALL - Sellers"
+          TopLeft="281,414" />
+        <EdgeLayout
+          Id="Package\DFT - DWH FactOrder_items.Paths[Derived Column Output3]"
+          TopLeft="514,435">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-91,0"
+              Start="0,0"
+              End="-83.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-83.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - DWH FactOrder_items.Paths[Lookup Match Output1]"
+          TopLeft="351.25,354">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="206,42"
+          Id="Package\DFT - DWH FactOrder_items\LKP - Shipping_limit_date"
+          TopLeft="268,487" />
+        <EdgeLayout
+          Id="Package\DFT - DWH FactOrder_items.Paths[Union All Output 12]"
+          TopLeft="352,456">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="19,31"
+              Start="0,0"
+              End="19,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.5"
+                    Point2="0,15.5"
+                    Point3="4,15.5" />
+                  <mssgle:LineSegment
+                    End="15,15.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="15,15.5"
+                    Point2="19,15.5"
+                    Point3="19,19.5" />
+                  <mssgle:LineSegment
+                    End="19,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - DWH FactOrder_items.Paths[Lookup Match Output2]"
+          TopLeft="371,529">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="13,46"
+              Start="0,0"
+              End="13,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19"
+                    Point2="0,23"
+                    Point3="4,23" />
+                  <mssgle:LineSegment
+                    End="9,23" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9,23"
+                    Point2="13,23"
+                    Point3="13,27" />
+                  <mssgle:LineSegment
+                    End="13,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-41.69138671875,28,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -3060,29 +3619,6 @@ where [refTable].[Date] = ?</property>
         <Name>UsedTableName</Name>
         <Value
           type="q3:string">[dbo].[DimSellers]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT - DWH FactOrder_items\LKP - Shipping_limit_date">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimDate]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
@@ -3140,6 +3676,29 @@ where [refTable].[Date] = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - DWH FactOrder_items\LKP - Shipping_limit_date">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimDate]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
