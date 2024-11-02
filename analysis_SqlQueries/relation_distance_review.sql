@@ -20,3 +20,4 @@ SELECT AVG(
 		 ) as mean_distance_km, review_score
 FROM lat_lng_radians
 GROUP BY review_score
+ORDER BY review_score DESC
