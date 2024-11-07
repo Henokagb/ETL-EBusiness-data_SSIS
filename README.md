@@ -5,13 +5,13 @@ Find the detailed report [by clicking here](./report.pdf)
 
 ## The geniuses who worked with me 
 
-@lmdsti
+[@lmdsti](https://github.com/lmdsti)
 
-@Michael Bruen
+[@Michael Bruen](https://github.com/michaelbruen)
 
-@Theo-Ou
+[@Theo-Ou](https://github.com/Theo-Ou)
 
-@yassineelh99
+[@yassineelh99](https://github.com/yassineelh99)
 
 ## Overview on the dataset
 
